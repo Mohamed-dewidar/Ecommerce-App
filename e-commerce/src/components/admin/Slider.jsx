@@ -1,6 +1,8 @@
+import './style.css';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
+
 
 export default function Slider() {
     let [categories, setCategories] = useState([]);
@@ -22,9 +24,8 @@ export default function Slider() {
   return (
        <Carousel>
         {categories.map((category) => {
-           return <Carousel.Item onClick={() => console.log(category.title)} interval={3000}>
+           return <Carousel.Item className='carousel-item' key={category.id} onClick={() => console.log(category.title)} interval={3000}>
             <img
-              className="d-block w-100"
               src= {category.image_url}
               alt=""
             />

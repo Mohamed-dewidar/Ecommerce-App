@@ -15,9 +15,10 @@ export  function Mynav() {
           <Navbar.Brand href="#home"><NavLink className="nav-link" to="/home">ECOM</NavLink ></Navbar.Brand>
           <Nav className="ms-auto">
             <NavLink className="nav-link" to="admin/home">Home</NavLink >
-            <NavLink className="nav-link" to="/products">products</NavLink >
+            <NavLink className="nav-link" to="admin/products">products</NavLink >
             {/* <NavLink className="nav-link" to="/product/3">productdetails</NavLink > */}
             <NavLink className="nav-link" to="/products/0/edit">Add products</NavLink >
+            <NavLink className="nav-link" to="/products/0/edit"><i class="bi bi-person-circle m-2"></i></NavLink >
           </Nav>
         </Container>
       </Navbar>

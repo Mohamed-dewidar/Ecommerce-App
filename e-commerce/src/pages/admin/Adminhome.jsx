@@ -1,5 +1,6 @@
 import React from 'react'
-import Slider from './Slider'
+import Slider from '../../components/admin/Slider'
+import { ProductCards } from '../../components/admin/ProductCards';
 
 export function Adminhome() {
   return (
@@ -7,6 +8,7 @@ export function Adminhome() {
       
       hello from adminhome page
       <Slider></Slider>
+      <ProductCards></ProductCards>
     </div>
   )
 }
