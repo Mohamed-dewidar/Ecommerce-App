@@ -1,26 +1,14 @@
 import './style.css';
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { UserContext, ProductsContext, CategoryContext } from '../../App'
+import React, { useEffect, useState, useContext } from "react";
 import { Carousel } from "react-bootstrap";
 
 
 export default function Slider() {
-    let [categories, setCategories] = useState([]);
 
-    useEffect(() => {
-      getAllcategories();
-    }, []);
-
-    let getAllcategories = async () => {
-      try {
-        let response = await axios.get("http://localhost:3005/categories");
-        setCategories(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-
+    const categories = useContext(CategoryContext)
+    
   return (
        <Carousel>
         {categories.map((category) => {
@@ -36,6 +24,5 @@ export default function Slider() {
           </Carousel.Item>
          })}
       </Carousel>
-
   )
 }
