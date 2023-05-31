@@ -6,10 +6,14 @@ import { UserContext } from '../../context'
 import { useNavigate, useParams } from 'react-router-dom';
 
 export function Addproduct() {
-
+  //  get the id of the product you want to edit 
   let {id} = useParams();
+
+  // get the logged in user
   const user = useContext(UserContext)
   let navigate = useNavigate()
+
+  // get all the categories to list them later in the category selection
   let [allcategories, setCategories] = useState([]);
   let getAllcategories = async () => {
     try {
@@ -22,11 +26,6 @@ export function Addproduct() {
   useEffect(() => {
     getAllcategories();
   }, []);
-  const [selected, setSelected] = useState("");
-
-  const handleSelect = (event) => {
-    setSelected(event.target.value);
-  };
 
   // get product details if exists (id != 0)
   let [product,setProduct] = useState({})
@@ -41,6 +40,7 @@ export function Addproduct() {
 		}
 	}, []);
 
+  // function on submit
   let formOperation = (e) => {
 		e.preventDefault();
 
@@ -62,6 +62,45 @@ export function Addproduct() {
       }
 	};
 
+  // handling errors for discount and title section
+  const [errors, setErrors] = useState({
+    discount: false,
+    title: false,
+  });
+
+  const handleChange = (event) => {
+    if (event.target.name === 'discount'){
+      const value = event.target.value;
+      if (value >= 90) {
+        setErrors({
+          ...errors,
+          discount: true,
+        });
+      }
+      else{
+        setErrors({
+          ...errors,
+          discount: false,
+        });
+      }
+    }
+    else if (event.target.name === 'title'){
+      const value = event.target.value;
+      if (/^[^0-9].*/.test(value)) {
+        setErrors({
+          ...errors,
+          title: false,
+        });
+      }
+      else {
+        setErrors({
+          ...errors,
+          title: true,
+      })
+    }
+  }
+}
+
   return (
     <div className='container'>
       <h1 className='text-center'>Adding new product</h1>
@@ -70,7 +109,8 @@ export function Addproduct() {
 
       <Form.Group className="mb-3" >
         <Form.Label>Product Title</Form.Label>
-        <Form.Control type="text" name="title" placeholder="Enter title" required defaultValue={product.title} />
+        <Form.Control type="text" name="title" placeholder="Enter title" required defaultValue={product.title} onChange={handleChange} />
+        { errors.title && <div className="text-danger">title should start with a letter!!</div> }
       </Form.Group>
 
       <Form.Group className="mb-3" >
@@ -78,14 +118,15 @@ export function Addproduct() {
         <Form.Control as="textarea" name="description" rows={2} placeholder="Description" defaultValue={product.description}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" >description
+      <Form.Group className="mb-3" >
         <Form.Label>Price</Form.Label>
-        <Form.Control type="number" name="price" placeholder="Price" required/>
+        <Form.Control type="number" name="price" placeholder="Price" required defaultValue={product.price}/>
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Discount Percentage</Form.Label>
-        <Form.Control type="number" name="discount" placeholder="Discount Percentage" defaultValue={product.price}/>
+        <Form.Control type="number" name="discount" placeholder="Discount Percentage" defaultValue={product.discount} onChange={handleChange} max="90" />
+         {errors.discount && <div className="text-danger">Discount percentage cannot be greater than 90</div>}
       </Form.Group>
 
       <Form.Group className="mb-3" >
@@ -102,11 +143,7 @@ export function Addproduct() {
         <Form.Label>Category</Form.Label>
         <Form.Select
           className='mb-3'
-          name = "category"
-          onChange={handleSelect}
-          required={selected !== "" && selected !== "Choose from available categories"}
-          defaultValue={product.category}>
-          <option >Choose from available categories</option>
+          name = "category">
         {allcategories.map( (category) => {
             return <option value={category.title}>{category.title}</option>
           })}

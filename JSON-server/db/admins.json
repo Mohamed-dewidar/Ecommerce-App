@@ -1,7 +1,11 @@
 {
-    "admins": [
-        {
-            "name": "admin one"
-        }
-    ]
+  "admins": [
+    {
+      "id": 1,
+      "userName": "Mohamed Khaled",
+      "email": "khaled@gmail.com",
+      "password": "123456@aA",
+      "active": true
+    }
+  ]
 }

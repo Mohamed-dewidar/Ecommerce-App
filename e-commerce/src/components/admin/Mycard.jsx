@@ -7,6 +7,7 @@ export function Mycard(prop) {
 
     let navigate = useNavigate()
 
+
     let {product} = prop
     console.log(product)
 
@@ -23,7 +24,7 @@ export function Mycard(prop) {
         <Card.Text>
             {product.price} $
         </Card.Text>
-        <Button onClick={() => navigate(`/admin/prooducts/${product.id}`)} variant="primary">Edit Product</Button>
+        <Button onClick={() => navigate(`/admin/${product.seller}/products/${product.id}/edit`)} variant="primary">Edit Product</Button>
       </Card.Body>
     </Card>
     </div>

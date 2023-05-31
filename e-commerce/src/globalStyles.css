@@ -4,6 +4,10 @@
 :root{
     --dark-orange: rgb(241 100 30);
 }
+
+html {
+  font-size: 10px;
+}
  
 /* reset everything */
 
@@ -59,4 +63,28 @@ h6 {
 /* reset list style */
 ol, ul {
   list-style: none;
+}
+
+
+
+@media  screen and (min-width: 500px) {
+  html{
+    font-size: 12px;
+  }
+  
+}
+
+
+@media  screen and (min-width: 800px) {
+  html{
+    font-size: 14px;
+  }
+  
+}
+
+@media  screen and (min-width: 1200px) {
+  html{
+    font-size: 16px;
+  }
+  
 }
