@@ -2,7 +2,7 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserContext, ProductsContext } from '../../App'
+import { UserContext, ProductsContext } from '../../pages/admin/Admin'
 import React, { useEffect, useState, useContext } from "react";
 
 

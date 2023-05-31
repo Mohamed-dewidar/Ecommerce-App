@@ -1,6 +1,6 @@
 import './style.css';
 import axios from "axios";
-import { CategoryContext } from '../../App'
+import { CategoryContext } from '../../context'
 import React, { useContext } from "react";
 import { Carousel } from "react-bootstrap";
 
@@ -17,6 +17,7 @@ export default function Slider() {
               src= {category.image_url}
               alt=""
             />
+            
             <Carousel.Caption>
               <h3>{category.title}</h3>
               <p>{category.description}</p>
