@@ -1,15 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
+import { UserContext, ProductsContext } from '../../App'
+import React, { useEffect, useState, useContext } from "react";
 
 
 export  function MytableofProducts(prop) {
+   
     let {category} = prop
+    // const products = useContext(ProductsContext)
+
+  	let navigate = useNavigate();
+    
 
     let [products, setProducts] = useState([]);
-  	let navigate = useNavigate();
 	let getAllProduct = async () => {
 		try {
 			let response = await axios.get("http://localhost:3005/products");

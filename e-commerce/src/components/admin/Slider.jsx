@@ -1,7 +1,7 @@
 import './style.css';
 import axios from "axios";
-import { UserContext, ProductsContext, CategoryContext } from '../../App'
-import React, { useEffect, useState, useContext } from "react";
+import { CategoryContext } from '../../App'
+import React, { useContext } from "react";
 import { Carousel } from "react-bootstrap";
 
 

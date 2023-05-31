@@ -6,6 +6,7 @@ import { NotFound } from './pages/admin/Notfound';
 import { Adminhome } from './pages/admin/Adminhome';
 import { Mynav } from './components/admin/Mynav';
 import { Products } from './pages/admin/Products';
+import { Profile } from './pages/admin/Profile';
 import Footer from './components/admin/Footer';
 
 export const UserContext = React.createContext()
@@ -15,7 +16,7 @@ export const CategoryContext = React.createContext()
 function App() 
 {
 
-  let username = "karimmaged"
+  let username = "amrabrazek"
   let userproductArr = GetProducts(username)
   let usercategoryArr = GetCategories(username)
 
@@ -29,6 +30,7 @@ function App()
         <Routes>
           <Route path='admin/:user/home' element={<Adminhome/>} />
           <Route path='admin/:user/products' element={<Products/>} />
+          <Route path='admin/:user/profile' element={<Profile/>} />
           <Route path='*' element={<NotFound/>} />
           {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
         </Routes>
