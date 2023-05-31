@@ -1,15 +1,32 @@
-import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "../../components/admin/Footer";
 import { Button, Form } from "react-bootstrap";
-
+import { authApi } from "../../api/authApi";
 import "./loginpage.css";
 
+/**
+ * 123456@aA
+ * khaled@gmail.com
+ */
+
 export function LoginPage() {
-  const [formValues, setFormValues] = useState({});
-  const [error, setError] = useState({});
-  const [userType, setUserType] = useState("");
-  // authApi.getUser('khaled@gmail.com')
+
+  const navigator = useNavigate()
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+    userType: ""
+  });
+  const [error, setError] = useState({
+    submit: false,
+    email: false,
+    password: false,
+  });
+
+  
+
+  // handle the input fields and change the fromValues according to current input
   const inputHandler = (e) => {
     setFormValues({
       ...formValues,
@@ -17,17 +34,37 @@ export function LoginPage() {
     });
   };
 
-  const userTypeHandler = (e) => {
-    setUserType(e.target.id);
-    console.log(e.target.id);
-  };
 
-  const submitHandler = (e) => {
+  //handle the form submit, then login if valid
+  const submitHandler = async (e) => {
     e.preventDefault();
+    console.log(formValues)
+    let user = await authApi.getUser(formValues.email.toLowerCase(), formValues.userType)
+    
+    if(!user || user.password !== formValues.password){
+      setError({
+        ...error,
+        submit: true,
+        submitText: "Check Your Login Details !!!!" 
+      })
+      return
+    }
 
-    console.log(formValues);
+
+    if(!user.active){
+      setError({
+        ...error,
+        submit: true,
+        submitText: "Activate Your Account" 
+      })
+      return
+    }
+    setError({...error, submit: false, submitText: ""})
     console.log("login done");
   };
+
+  //validate the user input when leave the input field
+  //set the errors
   const validation = (e) => {
     const regex = {
       email: /^[\w]+@([\w-]+\.)+[\w-]{3}$/g,
@@ -51,8 +88,15 @@ export function LoginPage() {
     }
   };
 
+  const registerNavigte = () =>{
+    navigator('/register')
+  }
+
+ 
+
   return (
     <div className="login d-flex flex-column justify-content-center align-items-center">
+      <h1 className="">EHCO</h1>
       <Form
         onSubmit={submitHandler}
         className="login-form bg-dark p-5 d-flex flex-column"
@@ -65,9 +109,10 @@ export function LoginPage() {
             type="email"
             placeholder="Enter email"
             name="email"
+            required
           />
 
-          {error.email && <p className="text-danger">Email not valid</p>}
+          {error.email && <p className="text-danger mx-2 my-2">Not a valid email</p>}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -78,9 +123,10 @@ export function LoginPage() {
             type="password"
             placeholder="Password"
             name="password"
+            required
           />
           {error.password && (
-            <ul className="text-danger">
+            <ul className="password-list text-danger m-0 p-2">
               <li>passwort length at least 8</li>
               <li>at least one uppercase</li>
               <li>at least one lowercase</li>
@@ -88,13 +134,15 @@ export function LoginPage() {
             </ul>
           )}
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group className="mb-3 d-flex justify-content-around" controlId="formBasicCheckbox">
           <label htmlFor="admin">
             <input
               type="radio"
               name="userType"
               id="admin"
-              onClick={userTypeHandler}
+              value='admin'
+              onClick={inputHandler}
+              required
             />{" "}
             Admin
           </label>
@@ -104,7 +152,9 @@ export function LoginPage() {
               type="radio"
               name="userType"
               id="customer"
-              onClick={userTypeHandler}
+              value='customer'
+              onClick={inputHandler}
+              required
             />{" "}
             Customer
           </label>
@@ -112,12 +162,14 @@ export function LoginPage() {
         <Button
           variant="primary"
           type="submit"
-          className="w-75 m-auto"
-          disabled={error.email || error.password}
+          className="login-btn w-75 mx-auto"
         >
           Login
         </Button>
-        {/* <p className='register-text'>Register</p> */}
+        {error.submit && <p className="text-danger align-self-center py-2">{error.submitText}</p>}
+        <div className="my-3 w-100">
+        <p className='register-text text-center  w-100'>First time !!! Join us now <span onClick={registerNavigte} className="lead">Register</span></p>
+        </div>
       </Form>
     </div>
   );

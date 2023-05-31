@@ -5,6 +5,7 @@ import { Admin } from './pages/admin/Admin';
 
 import { Route, Routes } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 
 function App() 
 {
@@ -13,7 +14,7 @@ function App()
 
       <Routes>
           <Route path="login" element={<LoginPage></LoginPage>}></Route>
-          
+          <Route path="register" element={<RegisterPage></RegisterPage>}></Route>
       </Routes>
       {/* <Admin username = "karimmaged"></Admin> */}
     </div>
