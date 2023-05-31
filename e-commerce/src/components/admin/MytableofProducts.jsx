@@ -2,41 +2,29 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserContext } from '../../context'
+import { UserContext, ProductsContext } from '../../context'
 import React, { useEffect, useState, useContext } from "react";
+import { GetProducts } from "../../pages/admin/Admin";
 
 
 export  function MytableofProducts(prop) {
    
     const user = useContext(UserContext)
+    const productsx = GetProducts(user)
     let {category} = prop
-    // const products = useContext(ProductsContext)
-
   	let navigate = useNavigate();
+
+
     
-
-    let [products, setProducts] = useState([]);
-	let getAllProduct = async () => {
-		try {
-			let response = await axios.get("http://localhost:3005/products");
-			setProducts(response.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	useEffect(() => {
-		getAllProduct();
-	}, []);
-
     let deleteelement = (id) => {
 
         axios
             .delete(`http://localhost:3005/products/${id}`)
             .then((response) => {
                 console.log("deleted successfully")
-                navigate("/products");
-                getAllProduct()
+                productsx = GetProducts(user)
+                navigate(`/admin/${user}/products`);
+                
             })
             .catch((error) => {
                 console.log("error");
@@ -57,7 +45,7 @@ export  function MytableofProducts(prop) {
                 </tr>
             </thead>
             <tbody>
-                {products.map((product) => {
+                {productsx.map((product) => {
                     if (product.category === category){
                     return (
                         <tr key={product.id}>

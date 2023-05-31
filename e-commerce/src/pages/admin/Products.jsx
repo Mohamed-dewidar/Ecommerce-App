@@ -12,6 +12,11 @@ export function Products() {
 
 
 	return (
+		<div>
+			<h1 className="text-center">Hello ffrom products 
+
+			</h1>
 		<Myaccordion></Myaccordion>
+		</div>
 	);
 }

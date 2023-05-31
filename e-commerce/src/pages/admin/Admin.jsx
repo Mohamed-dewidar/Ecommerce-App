@@ -45,7 +45,7 @@ export function Admin(prop) {
 }
 
 
-function GetProducts (username){
+export function GetProducts (username){
     let [products, setProducts] = useState([]);
   
     let getAllproducts = async () => 
@@ -74,8 +74,7 @@ function GetProducts (username){
       return userproductArr
   }
   
-  
-  function GetCategories (username){
+export function GetCategories (username){
   
     let products = GetProducts(username)
     let categoriesArr = [];
