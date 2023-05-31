@@ -1,5 +1,13 @@
 {
+  "name": "json-server-multiple-files",
+  "version": "1.0.0",
+  "description": "Json-server multiple files",
+  "main": "server.js",
   "dependencies": {
     "json-server": "^0.17.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server --watch ./server.js --port 3005"
   }
 }
