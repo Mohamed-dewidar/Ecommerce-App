@@ -22,7 +22,7 @@ export function Admin(prop) {
   
   return (
     <div>
-      <UserContext.Provider value = {username}>
+      <UserContext.Provider value = {'karimmaged'}>
       <ProductsContext.Provider value = {userproductArr}>
       <CategoryContext.Provider value = {usercategoryArr}>
       <Mynav />
