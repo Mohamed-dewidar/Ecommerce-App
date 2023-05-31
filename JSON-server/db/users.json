@@ -1,8 +1,18 @@
 {
-    "users": [
-
-        {
-            "name": "ahmed"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "userName": "Mohamed Khaled",
+      "email": "khaled@gmail.com",
+      "password": "123456@aA",
+      "active": true
+    },
+    {
+      "id":2,
+      "userName": "Mohamed Ali",
+      "email": "ali@gmail.com",
+      "password": "123456@aA",
+      "active": true
+    }
+  ]
 }
