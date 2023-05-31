@@ -8,6 +8,7 @@ import { Mynav } from "../../components/admin/Mynav";
 import { Products } from './Products';
 import { Profile } from './Profile';
 import { Productdetails } from './Productdetails';
+import { Addproduct } from './Addproduct';
 import Footer from '../../components/admin/Footer';
 import { UserContext, ProductsContext, CategoryContext } from "../../context"
 
@@ -30,8 +31,7 @@ export function Admin(prop) {
           <Route path='admin/:user/home' element={<Adminhome/>} />
           <Route path='admin/:user/products' element={<Products/>} />
           <Route path='admin/:user/products/:id' element={<Productdetails />} />
-          <Route path='admin/:user/products/:id/edit' element={<Productdetails />} />
-
+          <Route path='admin/:user/products/:id/edit' element={<Addproduct />} />
           <Route path='admin/:user/profile' element={<Profile/>} />
           <Route path='*' element={<NotFound/>} />
           {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}

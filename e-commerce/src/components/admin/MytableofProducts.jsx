@@ -2,12 +2,13 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserContext, ProductsContext } from '../../pages/admin/Admin'
+import { UserContext } from '../../context'
 import React, { useEffect, useState, useContext } from "react";
 
 
 export  function MytableofProducts(prop) {
    
+    const user = useContext(UserContext)
     let {category} = prop
     // const products = useContext(ProductsContext)
 
@@ -65,13 +66,13 @@ export  function MytableofProducts(prop) {
                             <td>{product.price}</td>
                             <td>{product.stock}</td>
                             <td className="d-flex m-auto justify-content-around">
-                                <NavLink to={`/products/${product.id}/edit`}>
+                                <NavLink to={`/admin/${user}/products/${product.id}/edit`}>
                                     <i className='fs-2 text-info mx-1 bi bi-pencil-square'></i>
                                 </NavLink>
 
                                 <div onClick={() => deleteelement(product.id)}><i  className='fs-2 text-danger mx-1 bi bi-trash3-fill'></i></div>
                                 
-                                    <NavLink to={`/products/${product.id}`}>
+                                    <NavLink to={`/admin/${user}/products/${product.id}`}>
                                     <i className='fs-2 text-warning mx-1 bi bi-eye-fill'></i>
                                 </NavLink>
                             </td>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import { CategoryContext } from '../../context'
+import { CategoryContext } from '../../context';
 import { MytableofProducts } from './MytableofProducts';
 import { Accordion } from "react-bootstrap";
 
