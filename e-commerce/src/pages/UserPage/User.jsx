@@ -3,6 +3,7 @@ import UserNav from '../../components/user/UserNav';
 import CategoriesCards from '../../components/user/CategoriesCards';
 import UserAbout from '../../components/user/UserAbout';
 import RenewableEnergy from '../../components/user/RenewableEnergy';
+import ContactUs from '../../components/user/ContactUs';
 export default function User() {
   return (
     <div>
@@ -10,6 +11,7 @@ export default function User() {
       <CategoriesCards />
       <UserAbout />
       <RenewableEnergy />
+      <ContactUs />
     </div>
   );
 }
