@@ -1,60 +1,26 @@
 {
   "admins": [
     {
-      "userName": "khaled",
-      "email": "khaled@gmail.com",
-      "password": "123456@aA",
-      "active": false,
-      "wishList": [],
-      "cart": [],
-      "id": 1
-    },
-    {
-      "userName": "khaled23",
-      "email": "khaled23@gmail.com",
-      "password": "123456@aA",
-      "active": false,
-      "wishList": [],
-      "cart": [],
-      "id": 2
-    },
-    {
-      "userName": "khaled3",
-      "email": "khaled3@gmail.com",
-      "password": "123456@aA",
-      "active": false,
-      "wishList": [],
-      "cart": [],
-      "id": 3
-    },
-    {
+      "id": "2e7a5140-f3d0-45d4-9618-a84fe712929f",
       "userName": "khaledmo747",
       "email": "khaledmo747@gmail.com",
-      "password": "123456@aA",
-      "active": false,
+      "password": "ekJQRXVr$rQ2622",
+      "active": true,
       "wishList": [],
       "cart": [],
-      "id": 4
-    },
-    {
-      "userName": "khaledmo747",
-      "email": "khaledmo747@gmail.com",
-      "password": "123456@aA",
-      "active": false,
-      "wishList": [],
-      "cart": [],
-      "id": 5
+      "type": "admin"
     }
   ],
   "users": [
     {
-      "userName": "khaled23",
-      "email": "khaled23@gmail.com",
+      "id": "523b1534-00d3-4c8c-b583-576882219a5a",
+      "userName": "khaledmo747",
+      "email": "khaledmo747@gmail.com",
       "password": "123456@aA",
-      "active": false,
+      "active": true,
       "wishList": [],
       "cart": [],
-      "id": 1
+      "type": "customer"
     }
   ]
 }

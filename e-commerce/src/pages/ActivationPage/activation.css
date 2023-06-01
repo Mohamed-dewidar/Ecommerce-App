@@ -1,0 +1,28 @@
+.activation {
+  background-color: red;
+  min-height: 100vh;
+
+  color: wheat;
+  background-image: url("../../assets/images/loginBG.svg");
+
+  animation: animateActBG alternate infinite 5s;
+}
+
+.activation > h1{
+    border: 2px solid wheat;
+    border-radius: 1em;
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+    
+}
+
+@keyframes animateActBG {
+  from {
+    background-size: 20%;
+    background-position: top;
+  }
+  to {
+    background-size: 40%;
+    background-position: bottom;
+  }
+}

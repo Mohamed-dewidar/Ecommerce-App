@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "../../components/admin/Footer";
 import { Button, Form } from "react-bootstrap";
@@ -11,20 +11,17 @@ import "./loginpage.css";
  */
 
 export function LoginPage() {
-
-  const navigator = useNavigate()
+  const navigator = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
-    userType: ""
+    userType: "",
   });
   const [error, setError] = useState({
     submit: false,
     email: false,
     password: false,
   });
-
-  
 
   // handle the input fields and change the fromValues according to current input
   const inputHandler = (e) => {
@@ -34,32 +31,35 @@ export function LoginPage() {
     });
   };
 
-
   //handle the form submit, then login if valid
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(formValues)
-    let user = await authApi.getUser(formValues.email.toLowerCase(), formValues.userType)
-    
-    if(!user || user.password !== formValues.password){
+   
+    let user = await authApi.getUser(
+      formValues.email.toLowerCase(),
+      formValues.userType,
+    );
+
+    if (!user || user.password !== formValues.password) {
       setError({
         ...error,
         submit: true,
-        submitText: "Check Your Login Details !!!!" 
-      })
-      return
+        submitText: "Check Your Login Details !!!!",
+      });
+      return;
     }
 
-
-    if(!user.active){
+    if (!user.active) {
       setError({
         ...error,
         submit: true,
-        submitText: "Activate Your Account" 
-      })
-      return
+        submitText: "Activate Your Account, Activation Email was Sent",
+      });
+      let sendActiveEmailRes = await authApi.activationEmailSend(user)
+      return;
     }
-    setError({...error, submit: false, submitText: ""})
+
+    setError({ ...error, submit: false, submitText: "" });
     console.log("login done");
   };
 
@@ -88,11 +88,9 @@ export function LoginPage() {
     }
   };
 
-  const registerNavigte = () =>{
-    navigator('/register')
-  }
-
- 
+  const registerNavigte = () => {
+    navigator("/register");
+  };
 
   return (
     <div className="login d-flex flex-column justify-content-center align-items-center">
@@ -112,7 +110,9 @@ export function LoginPage() {
             required
           />
 
-          {error.email && <p className="text-danger mx-2 my-2">Not a valid email</p>}
+          {error.email && (
+            <p className="text-danger mx-2 my-2">Not a valid email</p>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -134,13 +134,16 @@ export function LoginPage() {
             </ul>
           )}
         </Form.Group>
-        <Form.Group className="mb-3 d-flex justify-content-around" controlId="formBasicCheckbox">
+        <Form.Group
+          className="mb-3 d-flex justify-content-around"
+          controlId="formBasicCheckbox"
+        >
           <label htmlFor="admin">
             <input
               type="radio"
               name="userType"
               id="admin"
-              value='admin'
+              value="admin"
               onClick={inputHandler}
               required
             />{" "}
@@ -152,7 +155,7 @@ export function LoginPage() {
               type="radio"
               name="userType"
               id="customer"
-              value='customer'
+              value="customer"
               onClick={inputHandler}
               required
             />{" "}
@@ -166,9 +169,18 @@ export function LoginPage() {
         >
           Login
         </Button>
-        {error.submit && <p className="text-danger align-self-center py-2">{error.submitText}</p>}
+        {error.submit && (
+          <p className="text-danger align-self-center py-2">
+            {error.submitText}
+          </p>
+        )}
         <div className="my-3 w-100">
-        <p className='register-text text-center  w-100'>First time !!! Join us now <span onClick={registerNavigte} className="lead">Register</span></p>
+          <p className="register-text text-center  w-100">
+            First time !!! Join us now{" "}
+            <span onClick={registerNavigte} className="lead">
+              Register
+            </span>
+          </p>
         </div>
       </Form>
     </div>
