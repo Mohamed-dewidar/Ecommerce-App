@@ -1,35 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import Footer from "../../components/admin/Footer";
-import { Button, Form } from "react-bootstrap";
-import { authApi } from "../../api/authApi";
-import "./register.css";
+import React, { useEffect, useRef, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import Footer from '../../components/admin/Footer';
+import { Button, Form } from 'react-bootstrap';
+import { authApi } from '../../api/authApi';
+import './register.css';
 import emailjs from '@emailjs/browser';
 
-/**
- * 123456@aA
- * khaled@gmail.com
- */
-
 export function RegisterPage() {
- 
-  const navigator = useNavigate()
+  const navigator = useNavigate();
 
   const [formValues, setFormValues] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-    userType: ""
+    email: '',
+    password: '',
+    confirmPassword: '',
+    userType: '',
   });
 
   const [error, setError] = useState({
     submit: false,
     email: false,
     password: false,
-    confirmPassword: false
+    confirmPassword: false,
   });
-
-  
 
   // handle the input fields and change the fromValues according to current input
   const inputHandler = (e) => {
@@ -39,57 +31,57 @@ export function RegisterPage() {
     });
   };
 
-  
   //handle the form submit, then login if valid
   const submitHandler = async (e) => {
     e.preventDefault();
-    
-    
-    setError({...error, submit: false, submitText: ""})
+
+    setError({ ...error, submit: false, submitText: '' });
     const user = {
       userName: formValues.email.split('@')[0],
       email: formValues.email,
       password: formValues.password,
       active: false,
       wishList: [],
-      cart: []
-    }
+      cart: [],
+    };
 
-    if(error.password || error.confirmPassword || error.email){
+    if (error.password || error.confirmPassword || error.email) {
       setError({
         ...error,
         submit: true,
-        submitText: "Some Data Aren't Valid"
-      })
-      return
+        submitText: "Some Data Aren't Valid",
+      });
+      return;
     }
 
-    let checkEmailExists = await authApi.getUser(user.email, formValues.userType)
-    console.log(checkEmailExists)
-   
-    if(checkEmailExists){
+    let checkEmailExists = await authApi.getUser(
+      user.email,
+      formValues.userType
+    );
+    console.log(checkEmailExists);
+
+    if (checkEmailExists) {
       setError({
         ...error,
         submit: true,
-        submitText: 'This Email Does Exists'
-      })
-      return 
+        submitText: 'This Email Does Exists',
+      });
+      return;
     }
     const form = {
       name: user.name,
       email: user.email,
-      message: 'ECHO ECHO ECHO'
-    }
+      message: 'ECHO ECHO ECHO',
+    };
     let activeEmail = await emailjs.send(
       'service_kwu7jeq',
       'template_fsly16o',
       form,
       'PhQhJO3v_56-NV2Km'
-    )
-    console.log(activeEmail)
-    let res = await authApi.addUser(user, formValues.userType)
-    
-    
+    );
+    console.log(activeEmail);
+    let res = await authApi.addUser(user, formValues.userType);
+
     // navigator('/login')
   };
 
@@ -120,23 +112,20 @@ export function RegisterPage() {
   const passwordMatchHandler = (e) => {
     setError({
       ...error,
-      confirmPassword: false
-    })
+      confirmPassword: false,
+    });
 
-    if(e.target.value != formValues.password){
+    if (e.target.value != formValues.password) {
       setError({
         ...error,
-        confirmPassword: true
-      })
+        confirmPassword: true,
+      });
     }
+  };
 
-  }
-
-  const registerNavigte = () =>{
-    navigator('/register')
-  }
-
- 
+  const registerNavigte = () => {
+    navigator('/register');
+  };
 
   return (
     <div className="register d-flex flex-column justify-content-center align-items-center">
@@ -145,7 +134,6 @@ export function RegisterPage() {
         onSubmit={submitHandler}
         className="register-form bg-dark p-5 d-flex flex-column"
       >
-
         {/* Email Field */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -158,7 +146,9 @@ export function RegisterPage() {
             required
           />
 
-          {error.email && <p className="text-danger mx-2 my-2">Not a valid email</p>}
+          {error.email && (
+            <p className="text-danger mx-2 my-2">Not a valid email</p>
+          )}
         </Form.Group>
 
         {/* Password Field */}
@@ -193,20 +183,25 @@ export function RegisterPage() {
             name="confirmPassword"
             required
           />
-          {error.confirmPassword && <p className="text-danger mx-2 my-2">Password Dosesn't match !!!</p>}
+          {error.confirmPassword && (
+            <p className="text-danger mx-2 my-2">Password Dosesn't match !!!</p>
+          )}
         </Form.Group>
 
         {/* userType Field */}
-        <Form.Group className="mb-3 d-flex justify-content-around" controlId="formBasicCheckbox">
+        <Form.Group
+          className="mb-3 d-flex justify-content-around"
+          controlId="formBasicCheckbox"
+        >
           <label htmlFor="admin">
             <input
               type="radio"
               name="userType"
               id="admin"
-              value='admin'
+              value="admin"
               onClick={inputHandler}
               required
-            />{" "}
+            />{' '}
             Admin
           </label>
           <br></br>
@@ -215,10 +210,10 @@ export function RegisterPage() {
               type="radio"
               name="userType"
               id="customer"
-              value='customer'
+              value="customer"
               onClick={inputHandler}
               required
-            />{" "}
+            />{' '}
             Customer
           </label>
         </Form.Group>
@@ -229,8 +224,11 @@ export function RegisterPage() {
         >
           Register
         </Button>
-        {error.submit && <p className="text-danger align-self-center py-2">{error.submitText}</p>}
-       
+        {error.submit && (
+          <p className="text-danger align-self-center py-2">
+            {error.submitText}
+          </p>
+        )}
       </Form>
     </div>
   );
