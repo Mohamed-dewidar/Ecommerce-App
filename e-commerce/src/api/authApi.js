@@ -3,19 +3,24 @@ import axios from "axios";
 const BASE_URL = "http://localhost:3005/";
 
 
-const addUser = (user) => axios.post(`${BASE_URL}users`, user)
+const addUser = (user, userType) => {
+  
+  switch(userType){
+    case 'customer': return axios.post(`${BASE_URL}users`, user);
+    case 'admin': return axios.post(`${BASE_URL}admins`, user); 
+  }
+  
+}
 
 const getUser = async (user, type) => {
     let res;
     if(type==='admin'){
         res = await getAdmin(user)
-        console.log(res)
         return res
     }
     if(type==='customer'){
         
         res = await getCustomer(user)
-        console.log(res)
         return res
     }
 }
@@ -23,7 +28,7 @@ const getCustomer = async (user) => {
   let ans;
   try {
     let res = await axios.get(`${BASE_URL}users`);
-    let data = res.data["users"];
+    let data = res.data;
     ans = data.find((e) => e["email"] === user);
     if (!ans) {
       throw new Error("Email doesn't exits");
@@ -38,8 +43,8 @@ const getAdmin = async (user) => {
   let ans;
   try {
     let res = await axios.get(`${BASE_URL}admins`);
-    let data = res.data["admins"];
-    ans = data.find((e) => e["email"] === user);
+    let data = res.data;
+    ans = data.find((ele) => ele["email"] === user);
     if (!ans) {
       throw new Error("Email doesn't exits");
     }

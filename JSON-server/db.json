@@ -1,34 +1,60 @@
 {
   "admins": [
     {
-      "id": 1,
-      "userName": "Mohamed Khaled",
+      "userName": "khaled",
       "email": "khaled@gmail.com",
       "password": "123456@aA",
-      "active": true
+      "active": false,
+      "wishList": [],
+      "cart": [],
+      "id": 1
+    },
+    {
+      "userName": "khaled23",
+      "email": "khaled23@gmail.com",
+      "password": "123456@aA",
+      "active": false,
+      "wishList": [],
+      "cart": [],
+      "id": 2
+    },
+    {
+      "userName": "khaled3",
+      "email": "khaled3@gmail.com",
+      "password": "123456@aA",
+      "active": false,
+      "wishList": [],
+      "cart": [],
+      "id": 3
+    },
+    {
+      "userName": "khaledmo747",
+      "email": "khaledmo747@gmail.com",
+      "password": "123456@aA",
+      "active": false,
+      "wishList": [],
+      "cart": [],
+      "id": 4
+    },
+    {
+      "userName": "khaledmo747",
+      "email": "khaledmo747@gmail.com",
+      "password": "123456@aA",
+      "active": false,
+      "wishList": [],
+      "cart": [],
+      "id": 5
     }
   ],
   "users": [
     {
-      "id": 1,
-      "userName": "Mohamed Khaled",
-      "email": "khaled@gmail.com",
-      "password": "123456@aA",
-      "active": true
-    },
-    {
-      "id": 2,
-      "userName": "Mohamed Ali",
-      "email": "ali@gmail.com",
-      "password": "123456@aA",
-      "active": true
-    },
-    {
-      "userName": "ahmed",
-      "email": "ahmed@gmail.com",
+      "userName": "khaled23",
+      "email": "khaled23@gmail.com",
       "password": "123456@aA",
       "active": false,
-      "id": 3
+      "wishList": [],
+      "cart": [],
+      "id": 1
     }
   ]
 }

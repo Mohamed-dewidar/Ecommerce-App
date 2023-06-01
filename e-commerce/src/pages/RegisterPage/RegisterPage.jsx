@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "../../components/admin/Footer";
 import { Button, Form } from "react-bootstrap";
 import { authApi } from "../../api/authApi";
 import "./register.css";
+import emailjs from '@emailjs/browser';
 
 /**
  * 123456@aA
@@ -11,7 +12,7 @@ import "./register.css";
  */
 
 export function RegisterPage() {
-
+ 
   const navigator = useNavigate()
 
   const [formValues, setFormValues] = useState({
@@ -42,14 +43,18 @@ export function RegisterPage() {
   //handle the form submit, then login if valid
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(formValues)
+    
+    
     setError({...error, submit: false, submitText: ""})
     const user = {
       userName: formValues.email.split('@')[0],
       email: formValues.email,
       password: formValues.password,
-      active: false
+      active: false,
+      wishList: [],
+      cart: []
     }
+
     if(error.password || error.confirmPassword || error.email){
       setError({
         ...error,
@@ -59,10 +64,33 @@ export function RegisterPage() {
       return
     }
 
-    let res = await authApi.addUser(user)
+    let checkEmailExists = await authApi.getUser(user.email, formValues.userType)
+    console.log(checkEmailExists)
+   
+    if(checkEmailExists){
+      setError({
+        ...error,
+        submit: true,
+        submitText: 'This Email Does Exists'
+      })
+      return 
+    }
+    const form = {
+      name: user.name,
+      email: user.email,
+      message: 'ECHO ECHO ECHO'
+    }
+    let activeEmail = await emailjs.send(
+      'service_kwu7jeq',
+      'template_fsly16o',
+      form,
+      'PhQhJO3v_56-NV2Km'
+    )
+    console.log(activeEmail)
+    let res = await authApi.addUser(user, formValues.userType)
     
     
-    console.log("Register done");
+    // navigator('/login')
   };
 
   //validate the user input when leave the input field
