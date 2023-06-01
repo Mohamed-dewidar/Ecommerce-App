@@ -1,0 +1,29 @@
+.register {
+  height: 100vh;
+  background-image: url("../../assets/images/registerBG.svg");
+
+  animation: animateRegisterBG alternate infinite 5s;
+}
+
+.register > h1 {
+    color: var(--dark-orange);
+}
+
+.register-form {
+  width: 25rem;
+  border-radius: 1em;
+  color: wheat;
+}
+
+
+
+@keyframes animateRegisterBG {
+  from {
+    background-size: 20%;
+    background-position: top ;
+  }
+  to {
+    background-size: 40%;
+    background-position: bottom ;
+  }
+}

@@ -12,11 +12,11 @@ function App()
   return (
     <div>
 
-      {/* <Routes>
+      <Routes>
           <Route path="login" element={<LoginPage></LoginPage>}></Route>
           <Route path="register" element={<RegisterPage></RegisterPage>}></Route>
-      </Routes> */}
-       <Admin username = "karimmaged"></Admin>
+      </Routes>
+       {/* <Admin username = "karimmaged"></Admin> */}
     </div>
   );
 }

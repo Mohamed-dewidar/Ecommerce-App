@@ -2,6 +2,9 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:3005/";
 
+
+const addUser = (user) => axios.post(`${BASE_URL}users`, user)
+
 const getUser = async (user, type) => {
     let res;
     if(type==='admin'){
@@ -48,4 +51,5 @@ const getAdmin = async (user) => {
 
 export const authApi = {
   getUser,
+  addUser
 };
