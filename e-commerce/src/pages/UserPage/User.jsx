@@ -4,6 +4,7 @@ import CategoriesCards from '../../components/user/CategoriesCards';
 import UserAbout from '../../components/user/UserAbout';
 import RenewableEnergy from '../../components/user/RenewableEnergy';
 import ContactUs from '../../components/user/ContactUs';
+import Footer from '../../components/user/Footer';
 export default function User() {
   return (
     <div>
@@ -12,6 +13,7 @@ export default function User() {
       <UserAbout />
       <RenewableEnergy />
       <ContactUs />
+      <Footer />
     </div>
   );
 }
