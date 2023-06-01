@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "../../components/admin/Footer";
@@ -7,19 +8,17 @@ import "./register.css";
 import emailjs from "@emailjs/browser";
 import { v4 as uuidv4 } from "uuid";
 
-/**
- * 123456@aA
- * khaled@gmail.com
- */
 
 export function RegisterPage() {
   const navigator = useNavigate();
 
   const [formValues, setFormValues] = useState({
+
     email: "",
     password: "",
     confirmPassword: "",
     userType: "",
+
   });
 
   const [error, setError] = useState({
@@ -41,7 +40,10 @@ export function RegisterPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+
     setError({ ...error, submit: false, submitText: "" });
+
+
     const user = {
       id: uuidv4(),
       userName: formValues.email.split("@")[0],
@@ -50,7 +52,9 @@ export function RegisterPage() {
       active: false,
       wishList: [],
       cart: [],
+
       type: formValues.userType,
+
     };
 
     if (error.password || error.confirmPassword || error.email) {
@@ -61,6 +65,7 @@ export function RegisterPage() {
       });
       return;
     }
+
 
     try {
       let checkEmailExists = await authApi.getUser(user.email, user.type);
@@ -82,6 +87,8 @@ export function RegisterPage() {
     } catch (e) {
       console.log(e);
     }
+
+
   };
 
   //validate the user input when leave the input field
@@ -124,6 +131,7 @@ export function RegisterPage() {
 
   const registerNavigte = () => {
     navigator("/register");
+
   };
 
   return (
@@ -200,7 +208,7 @@ export function RegisterPage() {
               value="admin"
               onClick={inputHandler}
               required
-            />{" "}
+            />{' '}
             Admin
           </label>
           <br></br>
@@ -212,7 +220,7 @@ export function RegisterPage() {
               value="customer"
               onClick={inputHandler}
               required
-            />{" "}
+            />{' '}
             Customer
           </label>
         </Form.Group>

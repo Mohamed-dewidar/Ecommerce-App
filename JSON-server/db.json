@@ -22,5 +22,37 @@
       "cart": [],
       "type": "customer"
     }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Electronics",
+      "description": "The best devices and gadgets for your needs and budget.",
+      "image_url": "https://th.bing.com/th/id/OIP.-VKAINgf50ay6wNGG8j75gHaFj?pid=ImgDet&rs=1"
+    },
+    {
+      "id": 2,
+      "title": "Clothing",
+      "description": "Stylish and comfortable clothing for every occasion and season.",
+      "image_url": "https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?cs=srgb&dl=fashion-man-shirt-994517.jpg&fm=jpg"
+    },
+    {
+      "id": 3,
+      "title": "Home Appliances",
+      "description": "Quality and durable appliances for your home and kitchen.",
+      "image_url": "https://th.bing.com/th/id/R.47f0601ed6f2c124702c434b03f6e494?rik=33tIEqJaeJxbpw&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 4,
+      "title": "Leather",
+      "description": "Premium leather products for fashion and function.",
+      "image_url": "https://th.bing.com/th/id/R.b0ee3dd8c91e4ba45f5979399feb2ae3?rik=nyK98%2bZPlJUAbw&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 5,
+      "title": "Watches",
+      "description": "Elegant and reliable watches for every style and taste.",
+      "image_url": "https://ujoydisplay.com/wp-content/uploads/2021/02/Glass-showcase-for-watch-shop_ujoydisplay.com-5-768x512.jpg"
+    }
   ]
 }
