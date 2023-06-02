@@ -3,6 +3,7 @@ import { Admin } from './pages/admin/Admin';
 
 // import { NotFound } from "./Notfound";
 import User from './pages/UserPage/User';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Route, Routes } from 'react-router-dom';
 import { LoginPage } from './pages/LoginPage/LoginPage';
@@ -24,7 +25,9 @@ function App() {
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes> */}
+
       <User />
+
       {/* <Admin username = "karimmaged"></Admin> */}
     </div>
   );

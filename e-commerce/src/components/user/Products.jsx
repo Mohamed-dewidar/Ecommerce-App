@@ -2,9 +2,10 @@ import React from 'react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import './products.css';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-export default function Products(props) {
-  let { category } = props;
+export default function Products() {
+  let { category } = useParams();
   let [firstProduct, setFirstProduct] = useState({});
   let [products, setProducts] = useState([]);
   useEffect(
