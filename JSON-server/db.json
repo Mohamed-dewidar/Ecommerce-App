@@ -54,5 +54,189 @@
       "description": "Elegant and reliable watches for every style and taste.",
       "image_url": "https://ujoydisplay.com/wp-content/uploads/2021/02/Glass-showcase-for-watch-shop_ujoydisplay.com-5-768x512.jpg"
     }
+  ],
+  "Electronics": [
+    {
+      "id": 1,
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 280,
+      "discountPercentage": 17.91,
+      "rating": 4.3,
+      "stock": "321",
+      "brand": "OPPO",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/4/1.jpg",
+        "https://i.dummyjson.com/data/products/4/2.jpg",
+        "https://i.dummyjson.com/data/products/4/3.jpg",
+        "https://i.dummyjson.com/data/products/4/4.jpg",
+        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Samsung Galaxy S21",
+      "description": "Samsung Galaxy S21 is a flagship smartphone that was launched on January 2021.",
+      "price": 500,
+      "discountPercentage": 16.67,
+      "rating": 4.5,
+      "stock": "189",
+      "brand": "Samsung",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://thegadgetflow.com/wp-content/uploads/2021/01/Samsung-Galaxy-S21-Series-05.jpg",
+      "images": [
+        "https://th.bing.com/th/id/OIP.Cg6_ux4VXs6yWJWjll_UwgHaE8?pid=ImgDet&rs=1",
+        "https://th.bing.com/th/id/OIP.Cg6_ux4VXs6yWJWjll_UwgHaE8?pid=ImgDet&rs=1",
+        "https://fdn.gsmarena.com/imgroot/reviews/21/samsung-galaxy-s21-and-s21-ultra-handson/lifestyle/-1200w5/gsmarena_021.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Huawei MateBook D14",
+      "description": "Huawei MateBook D14 is a sleek and powerful laptop that features a 14-inch IPS display and a 10th Gen Intel Core processor.",
+      "price": 600,
+      "discountPercentage": 14.29,
+      "rating": 4.4,
+      "stock": "143",
+      "brand": "Huawei",
+      "category_id": 2,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.aedef40418f633b9df461c98e5379922?rik=WSRK9uSJr9ifZQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://th.bing.com/th/id/OIP.6MycwawRSmopGEGx_jeOygHaEe?pid=ImgDet&rs=1",
+        "https://i1.wp.com/www.yugatech.com/wp-content/uploads/2020/07/huawei-matebook-d14-review-13.jpg?fit=1280%2C960&ssl=1",
+        "https://hungrygeeks.com.ph/wp-content/uploads/2020/07/image005-1920x1440.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "iPhone 12 Pro",
+      "description": "iPhone 12 Pro is a premium smartphone that offers a 6.1-inch OLED display and a triple camera system with LiDAR scanner.",
+      "price": 900,
+      "discountPercentage": 10.0,
+      "rating": 4.6,
+      "stock": 121,
+      "brand": "Apple",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://i.ytimg.com/vi/iTPPWH70-Bk/maxresdefault.jpg",
+      "images": [
+        "https://th.bing.com/th/id/R.dfe30fbc95ca0c56d454a077cc06c0c4?rik=tUcIBkNJPVt9ZQ&pid=ImgRaw&r=0",
+        "https://www.redline.al/wp-content/uploads/2021/03/12-PRO-6.jpg",
+        "https://i.insider.com/5f85ee1ffd1f49001964d56c?format=jpeg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Dell Inspiron 15 3000",
+      "description": "Dell Inspiron 15 3000 is a reliable and affordable laptop that comes with a 15.6-inch HD display and an AMD Ryzen processor.",
+      "price": 400,
+      "discountPercentage": 11.11,
+      "rating": 4.2,
+      "stock": 56,
+      "brand": "Dell",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.0729ef951d68333022445812c7a76410?rik=CtvXEo%2btjSciag&pid=ImgRaw&r=0",
+      "images": [
+        "https://th.bing.com/th/id/R.d163f2efa35e047e7247cd1485dbcf7d?rik=MKc3Fqrrhey9Sg&pid=ImgRaw&r=0",
+        "https://i.alza.cz/ImgW.ashx?fd=FotoAddOrig&cd=ADC151s19-03&i=1.jpg",
+        "https://dakarstock.com/wp-content/uploads/2020/03/Dell-Inspiron-15-i3-2.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Huawei P40 Lite",
+      "description": "Huawei P40 Lite is a mid-range smartphone that features a 6.4-inch LCD display and a quad-camera setup.",
+      "price": 250,
+      "discountPercentage": 6.7,
+      "rating": 4.85,
+      "stock": 87,
+      "brand": "Huawei",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://i1.wp.com/tech-ish.com/wp-content/uploads/2020/03/Huawei-p40-Lite-Kenya.jpg?fit=1920%2C1080&ssl=1",
+      "images": [
+        "https://th.bing.com/th/id/OIP.hZ4LCpgj4qycPMBuY6TOmQHaHL?pid=ImgDet&rs=1",
+        "https://priceinsouthafrica.com/wp-content/uploads/2020/05/Huawei-P40-Lite-5G-Price-in-South-Africa.jpg",
+        "https://www.gizmochina.com/wp-content/uploads/2020/05/Huawei-P40-Lite.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Samsung Galaxy Tab S7",
+      "description": "Samsung Galaxy Tab S7 is a high-end tablet that offers a 11-inch AMOLED display and an S Pen stylus.",
+      "price": 650,
+      "discountPercentage": 10.0,
+      "rating": 4.7,
+      "stock": 135,
+      "brand": "Samsung",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://www.deepspecs.com/wp-content/uploads/2020/12/samung-tab-s7-deepspecs-1-2048x1319.jpg",
+      "images": [
+        "https://i.itworldcanada.com/wp-content/uploads/2020/08/samsung-galaxy-tab-s7-04235.jpg",
+        "https://www.sammobile.com/wp-content/uploads/2020/08/Galaxy-Tab-S7-Plus-review-40.jpg",
+        "https://images.indulgexpress.com/uploads/user/imagelibrary/2020/10/26/original/Main.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "HP Pavilion x360",
+      "description": "HP Pavilion x360 is a versatile and stylish laptop that features a 14-inch touchscreen display and a 360-degree hinge.",
+      "price": 650,
+      "discountPercentage": 15.0,
+      "rating": 4.6,
+      "stock": 22,
+      "brand": "HP",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.c436dc4fae946aae7c07488c9e103f79?rik=T1CzI7YH0W2x2A&pid=ImgRaw&r=0",
+      "images": [
+        "https://th.bing.com/th/id/OIP.fMsdlUoOaDKHgjFwkPOctwHaFc?pid=ImgDet&rs=1",
+        "https://www.notebookcheck.net/fileadmin/Notebooks/HP/Pavilion_x360_13-u102ng/HP_Pavilion__x360_13_u102ng_Ansicht1.jpg",
+        "https://www.bhphotovideo.com/images/images2500x2500/hp_m1x24ua_aba_11_6_pavilion_11_k120nr_x360_1174989.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "iPhone SE (2020)",
+      "description": "iPhone SE (2020) is a compact and affordable smartphone that offers a 4.7-inch Retina display and a powerful A13 Bionic chip.",
+      "price": 350,
+      "discountPercentage": 5.0,
+      "rating": 4.7,
+      "stock": 21,
+      "brand": "Apple",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.6fa2f59ab16c2945c09ea00e828e14c9?rik=yTObcscA1M3zlg&pid=ImgRaw&r=0",
+      "images": [
+        "https://th.bing.com/th/id/OIP.0flpVKzecroIA3MxW4nHmQAAAA?pid=ImgDet&rs=1",
+        "https://shiftdelete.net/wp-content/uploads/2021/06/apple-iphone-se-2020-5.jpg",
+        "https://amarprice.com/wp-content/uploads/Iphone-SE-2020.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "iPad Air (2020)",
+      "description": "iPad Air (2020) is a thin and light tablet that features a 10.9-inch Liquid Retina display and a Touch ID sensor.",
+      "price": 600,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Apple",
+      "category_id": 1,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.2046248ab1a9aae3fcb1def5f7ed9484?rik=d6lMPc0X04wueA&pid=ImgRaw&r=0",
+      "images": [
+        "https://images.idgesg.net/images/article/2020/11/ipad-air-2020-keyboard-100864847-orig.jpeg",
+        "https://images.indulgexpress.com/uploads/user/ckeditor_images/article/2020/11/17/6.jpg",
+        "https://images.idgesg.net/images/article/2020/11/ipad-air-2020-hero01-100864845-large.jpg"
+      ]
+    }
   ]
 }

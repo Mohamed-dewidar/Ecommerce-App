@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Admin } from "./pages/admin/Admin";
+import React, { useState } from 'react';
+import { Admin } from './pages/admin/Admin';
 
 // import { NotFound } from "./Notfound";
-import User from "./pages/UserPage/User";
+import User from './pages/UserPage/User';
 
-import { Route, Routes } from "react-router-dom";
-import { LoginPage } from "./pages/LoginPage/LoginPage";
-import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
-import { ActivatinPage } from "./pages/ActivationPage/ActivatinPage";
-import { AuthContext } from "./context";
-import { NotFound } from "./pages/admin/Notfound";
+import { Route, Routes } from 'react-router-dom';
+import { LoginPage } from './pages/LoginPage/LoginPage';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
+import { ActivatinPage } from './pages/ActivationPage/ActivatinPage';
+import { AuthContext } from './context';
+import { NotFound } from './pages/admin/Notfound';
 
 function App() {
   return (
     <div>
-      <Routes>
+      {/* <Routes>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
         <Route path="register" element={<RegisterPage></RegisterPage>}></Route>
         <Route
@@ -23,8 +23,8 @@ function App() {
         ></Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
-      </Routes>
-
+      </Routes> */}
+      <User />
       {/* <Admin username = "karimmaged"></Admin> */}
     </div>
   );
