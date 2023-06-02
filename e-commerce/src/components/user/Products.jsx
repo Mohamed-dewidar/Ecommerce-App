@@ -4,6 +4,7 @@ import './products.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 export default function Products() {
   let { category } = useParams();
   let [firstProduct, setFirstProduct] = useState({});
@@ -21,7 +22,10 @@ export default function Products() {
     },
     [category]
   );
-
+  let navigate = useNavigate();
+  function goTo(id) {
+    navigate(`/products/${category}/${id}`);
+  }
   let productsCards = products.map((product) => {
     return (
       <div className="card" style={{ width: '18rem' }} key={product.id}>
@@ -31,7 +35,14 @@ export default function Products() {
           alt="..."
         />
         <div className="card-body">
-          <div className="cardTitle">{product.title}</div>
+          <div
+            className="cardTitle"
+            onClick={() => {
+              goTo(product.id);
+            }}
+          >
+            {product.title}
+          </div>
           <p className="card-text">{product.description}</p>
           <span className="price">
             <span>USD</span> {product.price}
@@ -60,7 +71,14 @@ export default function Products() {
               <FaRegStar />
             </div>
           </div>
-          <div className="descriptionLink">{firstProduct.description}</div>
+          <div
+            className="descriptionLink"
+            onClick={() => {
+              goTo(firstProduct.id);
+            }}
+          >
+            {firstProduct.description}
+          </div>
           <div className="price">
             <span>USD</span> {firstProduct.price}
           </div>

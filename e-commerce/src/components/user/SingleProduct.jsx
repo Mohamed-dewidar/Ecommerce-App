@@ -47,21 +47,33 @@ export default function SingleProduct() {
           <div className="carousel-inner customize">
             <div className="carousel-item active">
               <img
-                src={product.images[0]}
+                src={
+                  product.images
+                    ? product.images[0]
+                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+                }
                 className="d-block w-100"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src={product.images[1]}
+                src={
+                  product.images
+                    ? product.images[1]
+                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+                }
                 className="d-block w-100"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src={product.images[2]}
+                src={
+                  product.images
+                    ? product.images[2]
+                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+                }
                 className="d-block w-100"
                 alt="..."
               />

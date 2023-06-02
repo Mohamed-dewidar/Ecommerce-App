@@ -49,6 +49,6 @@ div.infoContainer {
 
 .custom-btn {
   width: 180px;
-  border-radius: 25px;
+  border-radius: 25px !important;
   align-self: center;
 }

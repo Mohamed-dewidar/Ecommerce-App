@@ -17,7 +17,7 @@ export default function CategoriesCards() {
   let cards = categories.map((category) => {
     return (
       <div className="card" style={{ width: '18rem' }} key={category.id}>
-        <img src={category.image_url} class="card-img-top" alt="..." />
+        <img src={category.image_url} className="card-img-top" alt="..." />
         <div className="card-body">
           <h4
             className="clickable"
