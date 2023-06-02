@@ -5,11 +5,12 @@ import UserAbout from '../../components/user/UserAbout';
 import RenewableEnergy from '../../components/user/RenewableEnergy';
 import ContactUs from '../../components/user/ContactUs';
 import Footer from '../../components/user/Footer';
+import Products from '../../components/user/Products';
 export default function User() {
   return (
     <div>
       <UserNav />
-      <CategoriesCards />
+      <Products category="Electronics" />
       <UserAbout />
       <RenewableEnergy />
       <ContactUs />
