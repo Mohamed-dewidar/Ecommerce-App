@@ -38,7 +38,7 @@
     },
     {
       "id": 3,
-      "title": "Home Appliances",
+      "title": "Home-Appliances",
       "description": "Quality and durable appliances for your home and kitchen.",
       "image_url": "https://th.bing.com/th/id/R.47f0601ed6f2c124702c434b03f6e494?rik=33tIEqJaeJxbpw&pid=ImgRaw&r=0"
     },
@@ -236,6 +236,157 @@
         "https://images.idgesg.net/images/article/2020/11/ipad-air-2020-keyboard-100864847-orig.jpeg",
         "https://images.indulgexpress.com/uploads/user/ckeditor_images/article/2020/11/17/6.jpg",
         "https://images.idgesg.net/images/article/2020/11/ipad-air-2020-hero01-100864845-large.jpg"
+      ]
+    }
+  ],
+  "Clothing": [
+    {
+      "id": 1,
+      "title": "Nike Women’s Running Shoes",
+      "description": "A pair of lightweight and breathable shoes that offer comfort and support for your feet. They feature a mesh upper, a cushioned midsole, and a rubber outsole for traction and durability",
+      "price": 80,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Nike",
+      "category_id": 2,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/OIP.F53lI0-MIUWT8UNE1vzAngHaHa?pid=ImgDet&rs=1",
+      "images": [
+        "https://4.bp.blogspot.com/-VZCY94v7XWo/UQ3xd8ocM1I/AAAAAAAALBU/ekFHcqQMV_w/s1600/myshoes.jpg",
+        "https://cdn.sportsshoes.com/product/N/NIK13621/NIK13621_1000_3.jpg",
+        "https://th.bing.com/th/id/R.453739296fe9c427d3bbc380e47f68e0?rik=1MmVSzMzddmACg&riu=http%3a%2f%2fcheapnicesports.com%2f4998-thickbox_default%2fbuy-cheap-shoes-online-Nike-Zoom-Pegasus-33-Boys-Grade-School-Running-Shoes-Cool-Grey-Black-Wolf-Grey-Track-Red-sku-34316006.jpg&ehk=RTso9RkhK417oN3hKChhYYWShklgjlkQOD4uU2yvvU8%3d&risl=&pid=ImgRaw&r=0"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Guy Laroche Navy Wool Suit",
+      "description": "A classic suit that features a navy blue color, a wool fabric, a single-breasted jacket with a notch lapel, a two-button closure, and flap pockets, and a flat-front trouser with a zip fly and side pockets. It is a slim fit suit that can be worn for formal or business occasions.",
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Levis",
+      "category_id": 2,
+      "seller": "amrabrazek",
+      "thumbnail": "https://i.pinimg.com/originals/35/97/92/35979264ad971bc38aa847fbc822ebc8.jpg",
+      "images": [
+        "https://i.pinimg.com/originals/00/80/63/0080636467ad13f696cfddca6f32c618.jpg",
+        "https://i.pinimg.com/474x/2c/14/66/2c14668c2fc532c8efa6d84091220cb5--tweed-blazer-blazer-jacket.jpg",
+        "https://th.bing.com/th/id/R.411886ee904063314b78aefd6f7a746b?rik=WCvmCQHGbsmclQ&riu=http%3a%2f%2fthmb.inkfrog.com%2fthumbn%2fMonkeysuitvintage%2f037_060.JPG%3d600&ehk=56W3X6mjrxjJSNfdJNghPTMSlRpzWToWTjKyl4G9eUM%3d&risl=&pid=ImgRaw&r=0"
+      ]
+    }
+  ],
+  "Home-Appliances": [
+    {
+      "id": 1,
+      "title": "Samsung QN95B Neo QLED",
+      "description": "A 4K smart TV that uses Samsung’s Neo QLED technology to deliver stunning picture quality with enhanced brightness, contrast, and color. It also supports HDR10+, Dolby Vision, and Dolby Atmos for immersive sound and vision. It has a sleek design with a One Connect Box that reduces cable clutter and a SolarCell Remote that can be charged by indoor light.",
+      "price": 2499,
+      "discountPercentage": 6.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Samsung",
+      "category_id": 3,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.a2aee43e3c4a34956cf04da5d69ab50a?rik=wPBtvI1xpix3hQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://image-us.samsung.com/SamsungUS/home/easy-asset/tbsr-7495/2022_QN95B_KV_NA_PC.jpg?$product-details-jpg$",
+        "https://mcprod.jumbo.ae/media/catalog/product/8/1/81ydynirdul.acsl1500.eaa0bd3e3e.999xx_m3ab9tl0h7p9ec8w.jpg",
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6504/6504995cv11d.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "LG InstaView Door-in-Door Refrigerator",
+      "description": "A smart refrigerator that features a InstaView Door-in-Door design that lets you see inside without opening the door and access your favorite items with a simple knock.",
+      "price": 3999,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "LG",
+      "category_id": 3,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.daf59bbc65445b81d7383d9db69ebca9?rik=0wNe%2fCOLH%2bifPg&pid=ImgRaw&r=0",
+      "images": [
+        "https://th.bing.com/th/id/R.f67cc30ece8859a8ece29a0310bfc884?rik=cBdTrGsnRMFrPA&riu=http%3a%2f%2fwww.ibuywant.net%2fwp-content%2fuploads%2f2016%2f12%2flg-instaview-door-in-door-refrigerator-open.jpg&ehk=kyOq8hSAE4soxWdblFWRGkxMTA3tF7dkvafhDFpdlic%3d&risl=&pid=ImgRaw&r=0",
+        "https://premierappliancestore.com/image/data/2019/stainless-steel-lg-electronics-french-door-refrigerators-lmxs30796s-64_1000.jpg",
+        "https://th.bing.com/th/id/R.fb4edec4c9faaa7f33b06e9d20b4e11f?rik=rM4Pvj6wtUuCAg&riu=http%3a%2f%2fblog.mrsgs.com%2fwp-content%2fuploads%2f2017%2f03%2fLFXS30796D-InstaView-Door-in-Door-Drama-Lifestyle.png&ehk=VPL1MDKkv5oQKXVjRfd720YdIWtMcNBMLwRJwj1kkgI%3d&risl=&pid=ImgRaw&r=0"
+      ]
+    }
+  ],
+  "Leather": [
+    {
+      "id": 1,
+      "title": "Buffalo Jackson Roosevelt Buffalo Leather Satchel Messenger Bag",
+      "description": "A rugged and stylish bag made of genuine buffalo leather that can fit a 15-inch laptop and other essentials. It has a flap closure with buckles, an adjustable shoulder strap, and several pockets for organization.",
+      "price": 299,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Buffalo Jackson",
+      "category_id": 4,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.3ab5fa391c296aa189c9b81479ec2946?rik=aHGN4BILO8OcCg&pid=ImgRaw&r=0",
+      "images": [
+        "https://cdn.zando.co.za/p/156632-5753-236651-1-big.jpg",
+        "https://th.bing.com/th/id/OIP.V-8Ox3zZ_ejljUOsCXPbxQHaHa?pid=ImgDet&w=800&h=800&rs=1",
+        "https://th.bing.com/th/id/R.4ebcc2edc6517108ffc63eb385db0ba9?rik=GRfpF9a%2b9MlOBw&riu=http%3a%2f%2fimg1.etsystatic.com%2f037%2f0%2f9859685%2fil_340x270.653500865_o75u.jpg&ehk=%2fAuYVypGEHQ%2fRaUni4wziS%2fLUTXt6vR7nxlffN9SDpY%3d&risl=&pid=ImgRaw&r=0"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Realeather Leather Craft Lace",
+      "description": "A spool of real leather lace that can be used for various leathercraft projects, such as braiding, beading, lacing, and stitching. It is 5/32 inch wide and 25 yards long, and comes in different colors, such as black, brown, tan, and white.",
+      "price": 29.9,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Realeather",
+      "category_id": 4,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.f88a87355abceed6f0944b2946252aee?rik=2ee5jTnMJutXrA&riu=http%3a%2f%2ftools.notionsmarketing.com%2fnmcpics%2f466%2f466801PK-IT_IM.jpg&ehk=gVAfhh%2b1mJU%2bFr8BXDf8pg5Ki3znx8hzWGVS2paeAPo%3d&risl=&pid=ImgRaw&r=0",
+      "images": [
+        "https://th.bing.com/th/id/OIP.fZ1avGupl-ei_MxqIBwKMgAAAA?pid=ImgDet&w=309&h=350&rs=1",
+        "https://th.bing.com/th/id/R.73a3882017d09923f9f245ea28714d78?rik=ugNo2mDdSxUdjQ&riu=http%3a%2f%2fdemandware.edgesuite.net%2faamm_prd%2fon%2fdemandware.static%2f-%2fSites-joann-product-catalog%2fdefault%2fdw93d54243%2fimages%2fhi-res%2f14%2f14358097.jpg&ehk=avwLRnip4lhSfLuJh27hJKi%2fAtSwBs8BqsSOPaMhPV0%3d&risl=&pid=ImgRaw&r=0",
+        "https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dwed165069/images/hi-res/13/13190517.jpg"
+      ]
+    }
+  ],
+  "Watches": [
+    {
+      "id": 1,
+      "title": "Rolex GMT-Master II",
+      "description": "A luxury watch that features a bidirectional rotatable bezel with a 24-hour graduated Cerachrom insert, allowing you to read the time in two time zones simultaneously. It also has a date window, a self-winding mechanical movement, and a water resistance of 100 meters.",
+      "price": 9700,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Rolex",
+      "category_id": 5,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/R.c81af9423d15c4852e12651d7a0e7500?rik=IAYp4US42GYNCA&pid=ImgRaw&r=0",
+      "images": [
+        "https://thewatchlounge.com/wp-content/uploads/2019/05/Rolex-Sea-Dweller-126600-Single-Red-The-Watch-Lounge-Shop-3-510x510.jpg",
+        "https://th.bing.com/th/id/OIP.s9oQKestKDLWCsiNf7Vv5wHaHa?pid=ImgDet&w=768&h=768&rs=1",
+        "https://th.bing.com/th/id/OIP.R5e-r0vyIzgyuUbhfldJnAHaHa?pid=ImgDet&w=960&h=960&rs=1"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Seiko Presage",
+      "description": " A classic watch that showcases the Japanese aesthetic of simplicity and elegance. It has a stainless steel case, a leather strap, and a sapphire crystal. It also has a power reserve indicator, a date display, and a manual winding capability.",
+      "price": 495,
+      "discountPercentage": 12.0,
+      "rating": 4.6,
+      "stock": 153,
+      "brand": "Seiko Presage",
+      "category_id": 5,
+      "seller": "amrabrazek",
+      "thumbnail": "https://th.bing.com/th/id/OIP.hdYOmdUDtZzxBIkPhaSBuAHaE8?pid=ImgDet&rs=1",
+      "images": [
+        "https://timeandtidewatches.com/wp-content/uploads/2016/03/Seiko-Presage-SRQ021J-1.jpg",
+        "https://d23x6d9cx8qezf.cloudfront.net/wp-content/uploads/2017/11/Seiko-Presage-Cocktail-Starlight-Sakura-Hubuki-SSA361-363-SRPC01-03-1.jpg",
+        "https://th.bing.com/th/id/R.495e10591e834d2135c6be1f204d4d3b?rik=chr7ASLp9ciFkQ&riu=http%3a%2f%2fwww.ablogtowatch.com%2fwp-content%2fuploads%2f2017%2f02%2fSeiko-Presage-Automatic-Enamel-SPB045-01.jpg&ehk=M2F4ZjUtMPuVRjGqX8z67vokjFpVEWM3TRqOIKEY4oQ%3d&risl=&pid=ImgRaw&r=0"
       ]
     }
   ]
