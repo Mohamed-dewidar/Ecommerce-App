@@ -1,6 +1,6 @@
 .previewProjectdetails {
     width: 100%;
-    height:100%;
+    /* height:100vh; */
     /* left: 10%; */
     display: flex;
     flex-direction: column;
@@ -20,5 +20,15 @@
     display: flex;
     justify-content:space-around ;
     align-items: center;
+    /* border: solid; */
+}
 
+.produductDetailsImages {
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+
+.infocontainer {
+    font-size: larger;
 }

@@ -1,0 +1,64 @@
+div.firstProduct {
+  display: flex;
+  gap: 10vh;
+  padding: 20px;
+  border-bottom: solid 2.5px rgb(199, 196, 196);
+}
+div.firstProduct img {
+  display: block;
+  height: 200px;
+  width: 400px;
+}
+
+div.title {
+  display: flex;
+  gap: 10px;
+}
+
+div.descriptionLink {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+div.descriptionLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+div.shopBtn {
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.price span {
+  font-weight: bold;
+  color: rgb(85, 83, 83);
+}
+
+div.productsContainer {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+div.cardTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+div.cardTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button.shopBtn {
+  border-radius: 25px;
+  padding: 5px;
+  margin-left: 20px;
+}
+
+img.height {
+  display: block;
+  height: 200px;
+}

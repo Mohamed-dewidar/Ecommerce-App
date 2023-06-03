@@ -4,3 +4,8 @@
   gap: 25px;
   flex-wrap: wrap;
 }
+
+h4.clickable:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

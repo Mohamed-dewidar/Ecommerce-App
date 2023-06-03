@@ -3,6 +3,7 @@ import { Admin } from "./pages/admin/Admin";
 
 // import { NotFound } from "./Notfound";
 import User from "./pages/UserPage/User";
+import { BrowserRouter } from "react-router-dom";
 
 import { Route, Routes } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
@@ -10,22 +11,28 @@ import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 import { ActivatinPage } from "./pages/ActivationPage/ActivatinPage";
 import { AuthContext } from "./context";
 import { NotFound } from "./pages/admin/Notfound";
+import { Auth } from "./pages/AuthPage/Auth";
 
 function App() {
+  const [authUser, setAuthUser] = useState({
+    loged: false,
+    type: 'admin',
+    userName: 'xyz'
+  });
+
+  console.log(authUser.loged)
   return (
     <div>
-      {/* <Routes>
-        <Route path="login" element={<LoginPage></LoginPage>}></Route>
-        <Route path="register" element={<RegisterPage></RegisterPage>}></Route>
-        <Route
-          path="activation/:type/:uuid"
-          element={<ActivatinPage></ActivatinPage>}
-        ></Route>
+      <AuthContext.Provider value={{authUser, setAuthUser}}>
 
-        <Route path="*" element={<NotFound></NotFound>}></Route>
-      </Routes> */}
+        {!authUser.loged && <User></User>}
+        {!authUser.loged && <Auth></Auth>}
 
-      <Admin username = "amrabrazek"></Admin>
+        {authUser.loged && authUser.type == "customer" && <User />}
+        {authUser.loged && authUser.type == "admin"  && <Admin username ={authUser.userName} ></Admin>}
+
+
+      </AuthContext.Provider>
     </div>
   );
 }

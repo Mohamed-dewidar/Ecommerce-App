@@ -4,19 +4,22 @@ import Footer from "../../components/admin/Footer";
 import { Button, Form } from "react-bootstrap";
 import { authApi } from "../../api/authApi";
 import "./loginpage.css";
+import { AuthContext } from "../../context";
+import { loginJS } from "./login";
 
-/**
- * 123456@aA
- * khaled@gmail.com
- */
 
 export function LoginPage() {
   const navigator = useNavigate();
+  const {authUser, setAuthUser} = useContext(AuthContext)
+
+  // create state for formValues to watch changes
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
     userType: "",
   });
+
+  // create state for formErrors 
   const [error, setError] = useState({
     submit: false,
     email: false,
@@ -40,27 +43,22 @@ export function LoginPage() {
       formValues.userType,
     );
 
-    if (!user || user.password !== formValues.password) {
-      setError({
-        ...error,
-        submit: true,
-        submitText: "Check Your Login Details !!!!",
-      });
-      return;
+   
+    loginJS.checkDataIsWrongBeforeLogin(user, formValues, setError, error)
+    if(error.submit){
+      return
     }
 
-    if (!user.active) {
-      setError({
-        ...error,
-        submit: true,
-        submitText: "Activate Your Account, Activation Email was Sent",
-      });
-      let sendActiveEmailRes = await authApi.activationEmailSend(user)
-      return;
+    loginJS.checkIfUserIsActive(user, error, setError)
+    if(error.submit){
+      return
     }
 
     setError({ ...error, submit: false, submitText: "" });
-    console.log("login done");
+    setAuthUser({...user, loged: true})
+    
+    
+    navigator(`/admin/${user.userName}/home`)
   };
 
   //validate the user input when leave the input field
@@ -88,6 +86,8 @@ export function LoginPage() {
     }
   };
 
+
+  // Register Button handle event, to navigate to register page
   const registerNavigte = () => {
     navigator("/register");
   };
@@ -100,6 +100,8 @@ export function LoginPage() {
         className="login-form bg-dark p-5 d-flex flex-column"
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
+
+          {/* Email Field */}
           <Form.Label>Email address</Form.Label>
           <Form.Control
             onChange={inputHandler}
@@ -115,6 +117,8 @@ export function LoginPage() {
           )}
         </Form.Group>
 
+
+          {/* Password Field */}
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -134,6 +138,8 @@ export function LoginPage() {
             </ul>
           )}
         </Form.Group>
+
+        {/* User Type Radio Buttons */}
         <Form.Group
           className="mb-3 d-flex justify-content-around"
           controlId="formBasicCheckbox"
@@ -162,6 +168,9 @@ export function LoginPage() {
             Customer
           </label>
         </Form.Group>
+
+
+        {/* Login Button */}
         <Button
           variant="primary"
           type="submit"
@@ -174,6 +183,8 @@ export function LoginPage() {
             {error.submitText}
           </p>
         )}
+
+        {/* Register Button */}
         <div className="my-3 w-100">
           <p className="register-text text-center  w-100">
             First time !!! Join us now{" "}

@@ -11,6 +11,9 @@ div.navLogo {
   font-size: 2rem;
   font-weight: 900;
 }
+div.navLogo:hover {
+  cursor: pointer;
+}
 
 div.navSearch {
   position: relative;

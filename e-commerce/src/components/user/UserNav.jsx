@@ -1,10 +1,17 @@
 import React from 'react';
 import './userNav.css';
+import { useNavigate } from 'react-router-dom';
 export default function UserNav() {
+  let navigate = useNavigate();
+  function goHome() {
+    navigate('/');
+  }
   return (
     <div>
       <div className="navTop">
-        <div className="navLogo">ECHO</div>
+        <div className="navLogo" onClick={goHome}>
+          ECHO
+        </div>
         <div className="navSearch">
           <input type="text" placeholder="Search for anything" />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

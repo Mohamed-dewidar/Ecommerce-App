@@ -249,9 +249,10 @@ let addimage = () => {
       <Form.Group className="mb-3" >
         <Form.Label>Images</Form.Label>
         <div className='d-flex align-items-center'>
-        <div className='w-100'><Form.Control type="text" name="thumbnail" placeholder="image url addresss" defaultValue={product.thumbnail} onChange={handleChange}/></div>
+        <div className='w-100'><Form.Control type="text" name="thumbnail" placeholder="ain image url addresss" defaultValue={product.thumbnail} onChange={handleChange}/></div>
         <i className="fs-2 bi bi-plus-square-fill" onClick={addimage}></i>
         </div>
+        
       </Form.Group>
 
     
