@@ -15,9 +15,9 @@ import { Auth } from "./pages/AuthPage/Auth";
 
 function App() {
   const [authUser, setAuthUser] = useState({
-    loged: false,
+    loged: true,
     type: 'admin',
-    userName: 'xyz'
+    userName: 'amrabrazek'
   });
 
   console.log(authUser.loged)
