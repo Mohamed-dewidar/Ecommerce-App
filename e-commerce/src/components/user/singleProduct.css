@@ -1,6 +1,6 @@
 div.productContainer {
   padding: 20px;
-  height: 80vh;
+ 
   display: flex;
   gap: 5vw;
   width: 70vw;
@@ -12,16 +12,22 @@ div.sliderContainer {
 }
 
 .customize {
-  height: 80vh;
+  height: 50vh;
   width: 40vw;
 }
 
-div.infoContainer {
-  padding-bottom: 12%;
+.customize img {
+  min-width: 100% !important;
+  object-fit: cover;
+}
+
+div.infoContainer  {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1em;
+  justify-content: center;
   align-items: flex-start;
+
 }
 
 .title {
@@ -52,3 +58,6 @@ div.infoContainer {
   border-radius: 25px !important;
   align-self: center;
 }
+
+
+
