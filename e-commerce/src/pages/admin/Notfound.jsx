@@ -11,7 +11,7 @@ export  function NotFound() {
               The page you’re looking for doesn’t exist.
             </p>
           
-          <NavLink className="nav-link" to="/home"><a href="index.html" className="btn btn-primary">Go Home</a></NavLink >
+          <NavLink className="nav-link" to="/"><a href="index.html" className="btn btn-primary">Go Home</a></NavLink >
       </div>
     </div>
   )

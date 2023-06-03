@@ -7,10 +7,9 @@ import "./loginpage.css";
 import { AuthContext } from "../../context";
 import { loginJS } from "./login";
 
-
 export function LoginPage() {
   const navigator = useNavigate();
-  const {authUser, setAuthUser} = useContext(AuthContext)
+  const { authUser, setAuthUser } = useContext(AuthContext);
 
   // create state for formValues to watch changes
   const [formValues, setFormValues] = useState({
@@ -19,7 +18,7 @@ export function LoginPage() {
     userType: "",
   });
 
-  // create state for formErrors 
+  // create state for formErrors
   const [error, setError] = useState({
     submit: false,
     email: false,
@@ -37,35 +36,33 @@ export function LoginPage() {
   //handle the form submit, then login if valid
   const submitHandler = async (e) => {
     e.preventDefault();
-   
-    let user = await authApi.getUser(
-      formValues.email.toLowerCase(),
-      formValues.userType,
-    );
 
-   
-    loginJS.checkDataIsWrongBeforeLogin(user, formValues, setError, error)
-    if(error.submit){
-      return
+    try {
+      let user = await authApi.getUser(
+        formValues.email.toLowerCase(),
+        formValues.userType,
+      );
+
+      loginJS.checkDataIsWrongBeforeLogin(user, formValues, setError, error);
+      loginJS.checkIfUserIsActive(user, error, setError);
+
+      setError({ ...error, submit: false, submitText: "" });
+      setAuthUser({ ...user, loged: true });
+
+      user.type === "admin"
+        ? navigator(`/admin/${user.userName}/home`)
+        : navigator("/");
+
+    } catch (e) {
+      console.log(e);
     }
-
-    loginJS.checkIfUserIsActive(user, error, setError)
-    if(error.submit){
-      return
-    }
-
-    setError({ ...error, submit: false, submitText: "" });
-    setAuthUser({...user, loged: true})
-    
-    
-    navigator(`/admin/${user.userName}/home`)
   };
 
   //validate the user input when leave the input field
   //set the errors
   const validation = (e) => {
     const regex = {
-      email: /^[\w]+@([\w-]+\.)+[\w-]{3}$/g,
+      email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[\w]{2,3}$/g,
       password:
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     };
@@ -86,7 +83,6 @@ export function LoginPage() {
     }
   };
 
-
   // Register Button handle event, to navigate to register page
   const registerNavigte = () => {
     navigator("/register");
@@ -100,7 +96,6 @@ export function LoginPage() {
         className="login-form bg-dark p-5 d-flex flex-column"
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
-
           {/* Email Field */}
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -117,8 +112,7 @@ export function LoginPage() {
           )}
         </Form.Group>
 
-
-          {/* Password Field */}
+        {/* Password Field */}
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -168,7 +162,6 @@ export function LoginPage() {
             Customer
           </label>
         </Form.Group>
-
 
         {/* Login Button */}
         <Button

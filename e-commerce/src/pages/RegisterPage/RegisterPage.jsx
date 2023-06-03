@@ -84,7 +84,7 @@ export function RegisterPage() {
   //set the errors
   const validation = (e) => {
     const regex = {
-      email: /^[\w]+@([\w-]+\.)+[\w-]{3}$/g,
+      email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[\w]{2,3}$/g,
       password:
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     };
