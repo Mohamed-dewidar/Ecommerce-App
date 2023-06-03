@@ -16,8 +16,8 @@ export default function SingleProduct() {
   );
 
   return (
-    <div className="productContainer">
-      <div className="sliderContainer">
+    <div className="productContainer flex-column flex-lg-row align-items-lg-start align-items-center">
+      <div className="sliderContainer d-flex justify-content-center">
         <div
           id="carouselExampleIndicators"
           className="carousel slide customize"
@@ -105,7 +105,7 @@ export default function SingleProduct() {
           </button>
         </div>
       </div>
-      <div className="infoContainer">
+      <div className="infoContainer px-5 px-lg-0">
         <div className="title">{product.title}</div>
         <div className="productDescription">{product.description}</div>
         <div className="price">
