@@ -16,14 +16,15 @@ import { Auth } from "./pages/AuthPage/Auth";
 function App() {
   const [authUser, setAuthUser] = useState({
     loged: true,
-    userType: "customer",
+    type: "customer",
   });
 
   return (
+
     <div>
       {!authUser.loged && <Auth></Auth>}
 
-      {authUser.loged && authUser.userType == "customer" && <User />}
+      {authUser.loged && authUser.type == "customer" && <User />}
 
       {/* <Admin username = "karimmaged"></Admin> */}
     </div>

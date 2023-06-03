@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "../../components/admin/Footer";
@@ -8,19 +7,18 @@ import "./register.css";
 import emailjs from "@emailjs/browser";
 import { v4 as uuidv4 } from "uuid";
 
-
 export function RegisterPage() {
   const navigator = useNavigate();
 
+  //set the formValues state
   const [formValues, setFormValues] = useState({
-
     email: "",
     password: "",
     confirmPassword: "",
     userType: "",
-
   });
 
+  //set the error and validations state
   const [error, setError] = useState({
     submit: false,
     email: false,
@@ -39,10 +37,7 @@ export function RegisterPage() {
   //handle the form submit, then login if valid
   const submitHandler = async (e) => {
     e.preventDefault();
-
-
     setError({ ...error, submit: false, submitText: "" });
-
 
     const user = {
       id: uuidv4(),
@@ -52,9 +47,7 @@ export function RegisterPage() {
       active: false,
       wishList: [],
       cart: [],
-
       type: formValues.userType,
-
     };
 
     if (error.password || error.confirmPassword || error.email) {
@@ -66,10 +59,8 @@ export function RegisterPage() {
       return;
     }
 
-
     try {
       let checkEmailExists = await authApi.getUser(user.email, user.type);
-
       if (checkEmailExists) {
         setError({
           ...error,
@@ -83,12 +74,10 @@ export function RegisterPage() {
 
       let activateRes = await authApi.activationEmailSend(user);
       navigator("/login");
-      
+
     } catch (e) {
       console.log(e);
     }
-
-
   };
 
   //validate the user input when leave the input field
@@ -114,7 +103,9 @@ export function RegisterPage() {
       });
     }
   };
+  
 
+  // Check Password again and confirm that both passwords do match
   const passwordMatchHandler = (e) => {
     setError({
       ...error,
@@ -129,10 +120,7 @@ export function RegisterPage() {
     }
   };
 
-  const registerNavigte = () => {
-    navigator("/register");
 
-  };
 
   return (
     <div className="register d-flex flex-column justify-content-center align-items-center">
@@ -208,7 +196,7 @@ export function RegisterPage() {
               value="admin"
               onClick={inputHandler}
               required
-            />{' '}
+            />{" "}
             Admin
           </label>
           <br></br>
@@ -220,7 +208,7 @@ export function RegisterPage() {
               value="customer"
               onClick={inputHandler}
               required
-            />{' '}
+            />{" "}
             Customer
           </label>
         </Form.Group>

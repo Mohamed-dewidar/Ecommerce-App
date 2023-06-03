@@ -9,6 +9,9 @@ export function ActivatinPage() {
   const { uuid, type } = useParams();
   const navigator = useNavigate();
 
+  // Get user with the active link, activate the account
+  // then navigate to login after 2 seconds
+  // if the link was wrong or user did not exists go to 404
   const activate = async () => {
     try {
       let res = await authApi.activateUser(uuid, type);
@@ -21,6 +24,8 @@ export function ActivatinPage() {
     }
   };
 
+
+  // Call the active function as soon as the page loads
   useEffect(() => {
     activate();
   }, []);

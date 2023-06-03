@@ -5,18 +5,18 @@ import { Button, Form } from "react-bootstrap";
 import { authApi } from "../../api/authApi";
 import "./loginpage.css";
 
-/**
- * 123456@aA
- * khaled@gmail.com
- */
 
 export function LoginPage() {
   const navigator = useNavigate();
+
+  // create state for formValues to watch changes
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
     userType: "",
   });
+
+  // create state for formErrors 
   const [error, setError] = useState({
     submit: false,
     email: false,
@@ -88,6 +88,8 @@ export function LoginPage() {
     }
   };
 
+
+  // Register Button handle event, to navigate to register page
   const registerNavigte = () => {
     navigator("/register");
   };
@@ -100,6 +102,8 @@ export function LoginPage() {
         className="login-form bg-dark p-5 d-flex flex-column"
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
+
+          {/* Email Field */}
           <Form.Label>Email address</Form.Label>
           <Form.Control
             onChange={inputHandler}
@@ -115,6 +119,8 @@ export function LoginPage() {
           )}
         </Form.Group>
 
+
+          {/* Password Field */}
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -134,6 +140,8 @@ export function LoginPage() {
             </ul>
           )}
         </Form.Group>
+
+        {/* User Type Radio Buttons */}
         <Form.Group
           className="mb-3 d-flex justify-content-around"
           controlId="formBasicCheckbox"
@@ -162,6 +170,9 @@ export function LoginPage() {
             Customer
           </label>
         </Form.Group>
+
+
+        {/* Login Button */}
         <Button
           variant="primary"
           type="submit"
@@ -174,6 +185,8 @@ export function LoginPage() {
             {error.submitText}
           </p>
         )}
+
+        {/* Register Button */}
         <div className="my-3 w-100">
           <p className="register-text text-center  w-100">
             First time !!! Join us now{" "}
