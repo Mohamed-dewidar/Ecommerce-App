@@ -1,32 +1,29 @@
-import React, { useState } from 'react';
-import { Admin } from './pages/admin/Admin';
+import React, { useState } from "react";
+import { Admin } from "./pages/admin/Admin";
 
 // import { NotFound } from "./Notfound";
-import User from './pages/UserPage/User';
-import { BrowserRouter } from 'react-router-dom';
+import User from "./pages/UserPage/User";
+import { BrowserRouter } from "react-router-dom";
 
-import { Route, Routes } from 'react-router-dom';
-import { LoginPage } from './pages/LoginPage/LoginPage';
-import { RegisterPage } from './pages/RegisterPage/RegisterPage';
-import { ActivatinPage } from './pages/ActivationPage/ActivatinPage';
-import { AuthContext } from './context';
-import { NotFound } from './pages/admin/Notfound';
+import { Route, Routes } from "react-router-dom";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
+import { ActivatinPage } from "./pages/ActivationPage/ActivatinPage";
+import { AuthContext } from "./context";
+import { NotFound } from "./pages/admin/Notfound";
+import { Auth } from "./pages/AuthPage/Auth";
 
 function App() {
+  const [authUser, setAuthUser] = useState({
+    loged: true,
+    userType: "customer",
+  });
+
   return (
     <div>
-      {/* <Routes>
-        <Route path="login" element={<LoginPage></LoginPage>}></Route>
-        <Route path="register" element={<RegisterPage></RegisterPage>}></Route>
-        <Route
-          path="activation/:type/:uuid"
-          element={<ActivatinPage></ActivatinPage>}
-        ></Route>
+      {!authUser.loged && <Auth></Auth>}
 
-        <Route path="*" element={<NotFound></NotFound>}></Route>
-      </Routes> */}
-
-      <User />
+      {authUser.loged && authUser.userType == "customer" && <User />}
 
       {/* <Admin username = "karimmaged"></Admin> */}
     </div>
