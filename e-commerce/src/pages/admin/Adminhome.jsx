@@ -6,11 +6,12 @@ import { ProductCards } from '../../components/admin/ProductCards';
 export function Adminhome() {
  
   return (
-    <div>
+    <div className='d-flex flex-column '>
       
-      hello from adminhome page
+     <div className='d-flex justify-content-center m-4'><h1>Categories</h1></div>
       <Slider></Slider>
-      <ProductCards></ProductCards>
+     <div className='d-flex justify-content-center m-4'><h1>Products</h1></div>
+      <div className='d-flex justify-content-center'><ProductCards></ProductCards></div>
     </div>
   )
 }

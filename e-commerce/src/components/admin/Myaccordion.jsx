@@ -1,21 +1,23 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import { CategoryContext } from '../../context';
+import { UserContext,  } from '../../context'
 import { MytableofProducts } from './MytableofProducts';
 import { Accordion } from "react-bootstrap";
+import { GetCategories } from "../../pages/admin/Admin";
 
 export  function Myaccordion() {
 
-  const categories = useContext(CategoryContext)
+  const user = useContext(UserContext)
+  const categories = GetCategories(user)
 
   return (
     <div>
-  <Accordion defaultActiveKey="0">
+  <Accordion defaultActiveKey="0" >
     {categories.map( (category) => {
-           return <Accordion.Item eventKey={category.id}>
-           <Accordion.Header><div className='d-flex'><div>{category.title}</div> <div className="ms-auto">14</div></div></Accordion.Header>
+           return <Accordion.Item  eventKey={category.id}>
+           <Accordion.Header className=" ">{category.title}</Accordion.Header>
            <Accordion.Body className="bg-dark">
-               <MytableofProducts category={category.title}></MytableofProducts>
+               <MytableofProducts category_id={category.id}></MytableofProducts>
            </Accordion.Body>
          </Accordion.Item>
          })}

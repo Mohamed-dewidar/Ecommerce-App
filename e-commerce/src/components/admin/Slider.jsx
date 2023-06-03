@@ -1,13 +1,15 @@
 import './style.css';
 import axios from "axios";
-import { CategoryContext } from '../../context'
+import { UserContext,  } from '../../context'
 import React, { useContext } from "react";
 import { Carousel } from "react-bootstrap";
+import { GetCategories, } from "../../pages/admin/Admin";
 
 
 export default function Slider() {
 
-    const categories = useContext(CategoryContext)
+  const user = useContext(UserContext)
+  const categories = GetCategories(user)
     
   return (
        <Carousel>

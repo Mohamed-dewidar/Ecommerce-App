@@ -23,15 +23,15 @@ export function Admin(prop) {
   
   return (
     <div>
-      <UserContext.Provider value = {'karimmaged'}>
+      <UserContext.Provider value = {username}>
       <ProductsContext.Provider value = {userproductArr}>
       <CategoryContext.Provider value = {usercategoryArr}>
       <Mynav />
         <Routes>
           <Route path='admin/:user/home' element={<Adminhome/>} />
           <Route path='admin/:user/products' element={<Products/>} />
-          <Route path='admin/:user/products/:id' element={<Productdetails />} />
-          <Route path='admin/:user/products/:id/edit' element={<Addproduct />} />
+          <Route path='admin/:user/:category_id/:id' element={<Productdetails />} />
+          <Route path='admin/:user/:category_id/:id/edit' element={<Addproduct />} />
           <Route path='admin/:user/profile' element={<Profile/>} />
           <Route path='*' element={<NotFound/>} />
           {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
@@ -45,33 +45,38 @@ export function Admin(prop) {
 }
 
 
+
+
+
 export function GetProducts (username){
+    
+    let AllCategories = ["Electronics", "Clothing", "Home-Appliances", "Leather", "Watches" ]
     let [products, setProducts] = useState([]);
-  
     let getAllproducts = async () => 
     {
       try {
-        let response = await axios.get("http://localhost:3005/products");
-        setProducts(response.data);
+        const promises = AllCategories.map((category) => {
+          return axios.get(`http://localhost:3005/${category}`);
+        });
+    
+        const responses = await Promise.all(promises);
+    
+        const products = responses.flatMap((response) => response.data);
+        
+        setProducts(products);
+        console.log(products)
       } catch (error) {
         console.log(error);
       }
     };
   
     useEffect(() => {
-        getAllproducts();
+      getAllproducts();
+        console.log(products)
       }, []);
   
-    let userproductArr = []
-    for (let i = 0; i < products.length; i++) 
-      {
-        if ( products[i].seller == username)
-        {
-          userproductArr = [...userproductArr, products[i]]
-        }
-      }
-  
-      return userproductArr
+    let userProductArr = products.filter(product => { return product.seller === username})
+      return userProductArr
   }
   
 export function GetCategories (username){
@@ -82,11 +87,11 @@ export function GetCategories (username){
       {
         if ( products[i].seller == username)
         {
-          categoriesArr = [...categoriesArr, products[i].category]
+          categoriesArr = [...categoriesArr, products[i].category_id]
         }
       }
   
-      console.log(categoriesArr)
+      // console.log(categoriesArr)
   
       let [categories, setCategories] = useState([]);
   
@@ -95,7 +100,7 @@ export function GetCategories (username){
           let response = await axios.get("http://localhost:3005/categories");
           setCategories(response.data);
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       };
   
@@ -103,21 +108,21 @@ export function GetCategories (username){
         getAllcategories();
       }, []);
   
-      console.log(categories)
+      // console.log(categories)
   
       let usercategoryArr = []
       for (let i = 0; i < categories.length; i++) 
         {
-          if (categoriesArr.includes(categories[i].title))
+          if (categoriesArr.includes(categories[i].id))
           {
             usercategoryArr = [...usercategoryArr, categories[i]]
           }
           else 
           {
-              console.log("error");
+              // console.log("error");
           }
         }
-        console.log(usercategoryArr)
+        // console.log(usercategoryArr)
         return usercategoryArr
   }
   

@@ -11,11 +11,12 @@ export function ProductCards() {
 
     const user = useContext(UserContext)
     const products = GetProducts(user)
-    
-
+  
 
   return (
-    <div className=" m-4 d-flex justify-content-center align-items-center">
+    
+    <div className="container m-4 d-flex flex-wrap justify-content-center align-items-center">
+
         {products.map((item) => <Mycard key={item.id} product={item}></Mycard>)}
     </div>
   )

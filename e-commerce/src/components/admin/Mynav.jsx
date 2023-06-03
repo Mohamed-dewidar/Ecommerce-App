@@ -19,7 +19,7 @@ export  function Mynav() {
           <Nav className="ms-auto">
             <NavLink className="nav-link" to={`admin/${user}/home`}>Home</NavLink >
             <NavLink className="nav-link" to={`admin/${user}/products`}>Products</NavLink >
-            <NavLink className="nav-link" to={`admin/${user}/products/0/edit`}>Add product</NavLink >
+            <NavLink className="nav-link" to={`admin/${user}/product/0/edit`}>Add product</NavLink >
             <NavLink className="nav-link" to={`admin/${user}/Profile`}>{user}<i class="bi bi-person-circle m-2"></i></NavLink >
           </Nav>
         </Container>

@@ -14,7 +14,7 @@ import { NotFound } from "./pages/admin/Notfound";
 function App() {
   return (
     <div>
-      <Routes>
+      {/* <Routes>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
         <Route path="register" element={<RegisterPage></RegisterPage>}></Route>
         <Route
@@ -23,9 +23,9 @@ function App() {
         ></Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
-      </Routes>
+      </Routes> */}
 
-      {/* <Admin username = "karimmaged"></Admin> */}
+      <Admin username = "amrabrazek"></Admin>
     </div>
   );
 }
