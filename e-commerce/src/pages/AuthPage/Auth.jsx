@@ -9,7 +9,7 @@ export function Auth() {
   return (
     <div>
       <Routes>
-          <Route path="" element={<LoginPage></LoginPage>}></Route>
+          {/* <Route path="" element={<LoginPage></LoginPage>}></Route> */}
           <Route path="login" element={<LoginPage></LoginPage>}></Route>
           <Route
             path="register"

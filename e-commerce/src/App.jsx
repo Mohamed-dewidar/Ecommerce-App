@@ -15,18 +15,24 @@ import { Auth } from "./pages/AuthPage/Auth";
 
 function App() {
   const [authUser, setAuthUser] = useState({
-    loged: true,
-    type: "customer",
+    loged: false,
+    type: 'admin',
+    userName: 'xyz'
   });
 
+  console.log(authUser.loged)
   return (
-
     <div>
-      {!authUser.loged && <Auth></Auth>}
+      <AuthContext.Provider value={{authUser, setAuthUser}}>
 
-      {authUser.loged && authUser.type == "customer" && <User />}
+        {!authUser.loged && <User></User>}
+        {!authUser.loged && <Auth></Auth>}
 
-      {/* <Admin username = "karimmaged"></Admin> */}
+        {authUser.loged && authUser.type == "customer" && <User />}
+        {authUser.loged && authUser.type == "admin"  && <Admin username ={authUser.userName} ></Admin>}
+
+
+      </AuthContext.Provider>
     </div>
   );
 }

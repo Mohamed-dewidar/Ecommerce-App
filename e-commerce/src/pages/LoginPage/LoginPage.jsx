@@ -4,10 +4,13 @@ import Footer from "../../components/admin/Footer";
 import { Button, Form } from "react-bootstrap";
 import { authApi } from "../../api/authApi";
 import "./loginpage.css";
+import { AuthContext } from "../../context";
+import { loginJS } from "./login";
 
 
 export function LoginPage() {
   const navigator = useNavigate();
+  const {authUser, setAuthUser} = useContext(AuthContext)
 
   // create state for formValues to watch changes
   const [formValues, setFormValues] = useState({
@@ -40,27 +43,22 @@ export function LoginPage() {
       formValues.userType,
     );
 
-    if (!user || user.password !== formValues.password) {
-      setError({
-        ...error,
-        submit: true,
-        submitText: "Check Your Login Details !!!!",
-      });
-      return;
+   
+    loginJS.checkDataIsWrongBeforeLogin(user, formValues, setError, error)
+    if(error.submit){
+      return
     }
 
-    if (!user.active) {
-      setError({
-        ...error,
-        submit: true,
-        submitText: "Activate Your Account, Activation Email was Sent",
-      });
-      let sendActiveEmailRes = await authApi.activationEmailSend(user)
-      return;
+    loginJS.checkIfUserIsActive(user, error, setError)
+    if(error.submit){
+      return
     }
 
     setError({ ...error, submit: false, submitText: "" });
-    console.log("login done");
+    setAuthUser({...user, loged: true})
+    
+    
+    navigator(`/admin/${user.userName}/home`)
   };
 
   //validate the user input when leave the input field
