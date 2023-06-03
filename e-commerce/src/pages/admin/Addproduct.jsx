@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { UserContext } from '../../context'
 import { useNavigate, useParams } from 'react-router-dom';
 import "./css/Addproduct.css";
+import { Products } from './Products';
 
 export function Addproduct() {
   //  get the id of the product you want to edit 
@@ -12,7 +13,6 @@ export function Addproduct() {
   let {category_id} = useParams();
   let AllCategories = ["Electronics", "Clothing", "Home-Appliances", "Leather", "Watches" ]
   let category_name = AllCategories[category_id-1]
-  // console.log(category_name)
   
   // get the logged in user
   const user = useContext(UserContext)
@@ -32,19 +32,13 @@ export function Addproduct() {
     getAllcategories();
   }, []);
 
-  // get product details if exists (id != 0)
-  // let [category_name,setCategory_name] = useState(AllCategories[category_id-1])
 
-  // let setcategory = () => {
-  //   setCategory_name = 
-  // }
-
-  let [product,setProduct] = useState({})
+  // let [product,setProduct] = useState({})
   let [formvalues,setFormvalues] = useState({
     title: '',
     description: '',
     price: '',
-    discountPercentage: 0,
+    discountPercentage: '',
     rating:'',
     stock: '',
     brand: '',
@@ -57,7 +51,7 @@ export function Addproduct() {
   
   let getProduct = async () => {
 		let response = await axios.get(`http://localhost:3005/${category_name}/${id}`);
-		setProduct(response.data);
+		// setProduct(response.data);
     setFormvalues(response.data);
 	};
 	useEffect(() => {
@@ -186,10 +180,67 @@ let hideProduct = () => {
   })
 }
 
+
+
+// })
+
+// console.log(imageArrCarrier)
+
 let addimage = () => {
-  console.log("addimage")
+  if (formvalues.images.length < 3) {
+    setFormvalues( {...formvalues,images: [...formvalues.images,""]})
+  }
+}
+console.log(formvalues.images)
+
+let removeimage = (e) => {
+
+  // console.log(e.target.value)
+  // console.log(formvalues.images)
+  setFormvalues ({...formvalues, images: formvalues.images.filter((element, index, array) => {return index !== (array.length - 1)})})
+  console.log(formvalues.images)
+}
+console.log(formvalues.images)
+
+
+let updateImagesArr = (e) => {
+  let imageArrCarrier = formvalues.images
+  console.log(imageArrCarrier)
+  imageArrCarrier[e.target.name] = e.target.value
+  console.log(imageArrCarrier)
+  setFormvalues( {...formvalues, images: imageArrCarrier})
+  console.log(formvalues.images)
 }
 
+
+
+
+let [imageInput, setImageInput] = useState([])
+
+
+// let imagesfornew = []
+let getimages = (e) => {
+  setFormvalues ({
+    images: [...formvalues.images, e.target.defaultValue]
+  })
+}
+
+// let imageInputhtml = imageInput.map((image, index) => {
+//   return (
+//       <div key={index} className=" d-flex felx-nowrap align-items-center">
+//       <span className='m-1'> image{index+1}: </span> 
+//       <div className="w-100">
+//         <Form.Control
+//           className="m-1"
+//           name = {`images`}
+//           type="text"
+//           placeholder="Enter image URL address"
+//           onBlur={getimages}
+//         />
+//       </div>
+//       <i class="text-danger fs-2 bi bi-x-square-fill" onClick={removeimage}></i>
+//     </div>)
+// })
 
   return (
     <div className='container'>
@@ -200,19 +251,19 @@ let addimage = () => {
 
       <Form.Group className="mb-3" >
         <Form.Label>Product Title</Form.Label>
-        <Form.Control type="text" name="title" placeholder="Enter title" required defaultValue={product.title} onChange={handleChange} />
+        <Form.Control type="text" name="title" placeholder="Enter title" required defaultValue={formvalues.title} onChange={handleChange} />
         { errors.title && <div className="text-danger">Title should start with a letter!!</div> }
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" name="description" rows={2} placeholder="Description" defaultValue={product.description} onChange={handleChange}/>
+        <Form.Control as="textarea" name="description" rows={2} placeholder="Description" defaultValue={formvalues.description} onChange={handleChange}/>
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Price</Form.Label>
         <div className='d-flex align-items-center'>
-        <div className='w-100'><Form.Control type="number" name="price" placeholder="Price" required defaultValue={product.price} onChange={handleChange} step="0.01" pattern="\d+(\.\d{1,2})?"/></div>
+        <div className='w-100'><Form.Control type="number" name="price" placeholder="Price" required defaultValue={formvalues.price} onChange={handleChange} step="0.01" pattern="\d+(\.\d{1,2})?"/></div>
         <div className='ms-auto'><i className="fs-2 bi bi-currency-dollar"></i></div>
         </div>
         { errors.price && <div className="text-danger">Price can't be less than zero!</div> }
@@ -220,19 +271,19 @@ let addimage = () => {
 
       <Form.Group className="mb-3" >
         <Form.Label>Discount Percentage</Form.Label>
-        <Form.Control type="number" name="discountPercentage" placeholder="Discount Percentage" defaultValue={product.discountPercentage} onChange={handleChange} max="90" />
+        <Form.Control type="number" name="discountPercentage" placeholder="Discount Percentage" defaultValue={formvalues.discountPercentage} onChange={handleChange} max="90" />
          {errors.discount && <div className="text-danger">Discount percentage cannot be greater than 90 or less than zero</div>}
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Stock</Form.Label>
-        <Form.Control type="number" name="stock" placeholder="In Stock" required defaultValue={product.stock} onChange={handleChange}/>
+        <Form.Control type="number" name="stock" placeholder="In Stock" required defaultValue={formvalues.stock} onChange={handleChange}/>
         { errors.stock && <div className="text-danger">Stock can't be less than zero!</div> }
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Brand name</Form.Label>
-        <Form.Control type="text" name="brand" placeholder="Brand" defaultValue={product.brand}/>
+        <Form.Control type="text" name="brand" placeholder="Brand" defaultValue={formvalues.brand}/>
       </Form.Group>
 
       <Form.Group>
@@ -241,7 +292,7 @@ let addimage = () => {
           name = "category_id" required onChange={handleChange}>
              { id==0 ? <option value="" disabled selected>Select Category</option> : null }
               {allcategories.map( (category) => {
-              return <option value={category.id}>{category.title}</option>
+              return <option key={category.id} value={category.id}>{category.title}</option>
           })}
         </Form.Select>
       </Form.Group>
@@ -249,13 +300,31 @@ let addimage = () => {
       <Form.Group className="mb-3" >
         <Form.Label>Images</Form.Label>
         <div className='d-flex align-items-center'>
-        <div className='w-100'><Form.Control type="text" name="thumbnail" placeholder="ain image url addresss" defaultValue={product.thumbnail} onChange={handleChange}/></div>
-        <i className="fs-2 bi bi-plus-square-fill" onClick={addimage}></i>
+        <div className='w-100'><Form.Control type="text" name="thumbnail" placeholder="ain image url addresss" defaultValue={formvalues.thumbnail} onChange={handleChange}/></div>
+        <i className="text-success fs-2 bi bi-plus-square-fill m-1" onClick={addimage}></i>
         </div>
-        
       </Form.Group>
 
-    
+      {formvalues.images && formvalues.images.length > 0 ? (
+            <Form.Group className="mb-3">
+              {formvalues.images.map((imageUrl, i) => (
+                 <div key={imageUrl} className=" d-flex felx-nowrap align-items-center">
+                  <span className='m-1'> image{i+1}: </span> <div className="w-100">
+                    <Form.Control
+                      className="m-1"
+                      type="text"
+                      name={`${i}`}
+                      placeholder="Enter image URL address"
+                      defaultValue={imageUrl}
+                      onChange={updateImagesArr}
+                    />
+                  </div>
+                  <div className='p-1' onClick={removeimage}><i  class="m-1 text-danger fs-2 bi bi-x-square-fill" ></i></div>
+                </div>
+              ))}
+            </Form.Group>
+            ) : null}
+
 
       <div className='d-flex justify-content-around'>
         <div><Button   variant="primary" type="submit">
@@ -273,7 +342,7 @@ let addimage = () => {
             {/* <div className='closesign'> <i class="bi bi-x-lg"></i></div> */}
             <div className='closesign' onClick={hideProduct} ><i class="bi bi-x-square-fill"></i></div>
             <div className='d-flex parentcontainer '>
-              <div className=' imagecontainer '><img src={formvalues.thumbnail} alt="product image" /></div>
+              <div className=' imagecontainer '>{ formvalues.thumbnail ? <img src={formvalues.thumbnail} alt="product image" /> : <div className='d-flex w-100 h-100 justify-content-center align-items-center'><h1>No image yet!!</h1></div>}</div>
               <div className=' infocontainer'>
                 <div className='w-100 text-center'><h1>{formvalues.title}</h1></div>
                 <hr />

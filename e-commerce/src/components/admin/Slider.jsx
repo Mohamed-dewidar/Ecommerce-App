@@ -12,6 +12,7 @@ export default function Slider() {
   const categories = GetCategories(user)
     
   return (
+    <div className=' h-75'>
        <Carousel>
         {categories.map((category) => {
            return <Carousel.Item className='carousel-item' key={category.id} onClick={() => console.log(category.title)} interval={3000}>
@@ -27,5 +28,6 @@ export default function Slider() {
           </Carousel.Item>
          })}
       </Carousel>
+    </div>
   )
 }

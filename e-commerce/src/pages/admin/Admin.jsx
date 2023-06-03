@@ -11,6 +11,8 @@ import { Productdetails } from './Productdetails';
 import { Addproduct } from './Addproduct';
 import Footer from '../../components/admin/Footer';
 import { UserContext, ProductsContext, CategoryContext } from "../../context"
+import "./css/admin.css";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -36,6 +38,11 @@ export function Admin(prop) {
           <Route path='*' element={<NotFound/>} />
           {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
         </Routes>
+        <NavLink to={`/admin/${prop}/product/0/edit`}>
+        <div className="addbutton"><i className=" text-success fs-1 bi bi-plus-circle-fill"></i></div>
+        </NavLink>  
+
+        
       <Footer />
       </CategoryContext.Provider>
       </ProductsContext.Provider>
@@ -43,9 +50,6 @@ export function Admin(prop) {
     </div>
   )
 }
-
-
-
 
 
 export function GetProducts (username){

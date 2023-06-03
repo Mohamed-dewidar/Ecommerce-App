@@ -1,11 +1,6 @@
 .previewProjectdetails {
-    width: 100%;
-    /* height:100vh; */
-    /* left: 10%; */
     display: flex;
     flex-direction: column;
-    /* align-self: center; */
-    /* left: 2000px; */
     position: relative;
     /* top: 200vh; */
     background-color: white;
@@ -15,20 +10,75 @@
     font-size: large;
 }
 
-.imagescontianer{
-    width: 20%;
+
+.parentcontainer{
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
+}
+
+.mainimagecontianer{
+    /* height: 60vh; */
+    width: 60vw;
+    height: 50vh;
+    object-fit: contain;
     display: flex;
     justify-content:space-around ;
     align-items: center;
-    /* border: solid; */
+    /* border: solid 1px black; */
+    /* background-color: black; */
+}
+
+
+.imagestotherightcontianer {
+    width: 20vw;
+    max-width: 100px;
+    object-fit: contain;
+    display: flex;
+    justify-content:space-around ;
+    align-items: center;
+
+}
+
+.mainimagecontianer img {
+    /* width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden; */
+    /* max-width: 300px;
+    max-height: 300px; */
 }
 
 .produductDetailsImages {
-    border: 2px solid black;
-    border-radius: 10px;
-
+    /* border: 2px solid gray; */
+    border-radius: 5px;
 }
+
+
+
 
 .infocontainer {
     font-size: larger;
 }
+
+
+@media screen and (min-width:1500px)
+{
+    .parentcontainer
+    {
+    flex-direction: row;
+
+    }
+
+    .mainimagecontianer
+    {
+        width: 40vw;
+    }
+} 
+
+
+.produductDetailsImages:hover 
+    {
+        transform: translateY(-6px) scale(1.1) rotate(10deg) ;
+        transition: transform 0.1s;
+    }
