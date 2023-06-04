@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Admin } from "./pages/admin/Admin";
+import React, { useState } from 'react';
+import { Admin } from './pages/admin/Admin';
 
 // import { NotFound } from "./Notfound";
-import User from "./pages/UserPage/User";
-import { BrowserRouter, Outlet } from "react-router-dom";
+import User from './pages/UserPage/User';
+import { BrowserRouter, Outlet } from 'react-router-dom';
+
 
 import { Route, Routes } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
@@ -12,6 +13,7 @@ import { ActivatinPage } from "./pages/ActivationPage/ActivatinPage";
 import { AuthContext, UserContext } from "./context";
 import { NotFound } from "./pages/admin/Notfound";
 import { Auth } from "./pages/AuthPage/Auth";
+
 import UserCategories from "./pages/UserPage/UserCategories";
 import UserProducts from "./pages/UserPage/UserProducts";
 import UserViewProduct from "./pages/UserPage/UserViewProduct";
@@ -22,13 +24,15 @@ import { Addproduct } from "./pages/admin/Addproduct";
 
 function App() {
   const [authUser, setAuthUser] = useState({
-    loged: true,
+    loged: false,
     type: "admin",
-    userName: "amrabrazek",
+    userName: "amrabrazek"
   });
 
+  console.log(authUser.loged);
   return (
     <div>
+
       <AuthContext.Provider value={{ authUser, setAuthUser }}>
         <UserContext.Provider value={authUser.userName}>
           <Routes>
@@ -59,6 +63,7 @@ function App() {
             <Route path='*' element={<NotFound/>} />
           </Routes>
         </UserContext.Provider>
+
       </AuthContext.Provider>
     </div>
   );
