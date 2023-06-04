@@ -65,9 +65,8 @@ export function Addproduct() {
   // function on submit
   let formOperation = (e) => {
 		e.preventDefault();
-
-
   if (id == 0) {
+
     category_name = AllCategories[formvalues.category_id-1]
   axios
       .post(`http://localhost:3005/${category_name}`, formvalues)
@@ -213,6 +212,40 @@ let updateImagesArr = (e) => {
   console.log(formvalues.images)
 }
 
+
+let deleteelement = (id, category) => {
+  axios
+      .delete(`http://localhost:3005/${AllCategories[parseInt(category) - 1]}/${id}`)
+      .then((response) => {
+          // console.log("deleted successfully")
+          navigate(`/admin/${user}/products`);
+      })
+      .catch((error) => {
+          console.log("error");
+      })
+      
+  };
+
+
+  let clearformvalues = () => {
+
+    setFormvalues({
+      title: '',
+      description: '',
+      price: '',
+      discountPercentage: '',
+      rating:'',
+      stock: '',
+      brand: '',
+      category_id: '',
+      seller: user,
+      thumbnail: '',
+      images:[],
+    })
+
+
+  }
+
 // let imageInputhtml = imageInput.map((image, index) => {
 //   return (
 //       <div key={index} className=" d-flex felx-nowrap align-items-center">
@@ -315,15 +348,33 @@ let updateImagesArr = (e) => {
 
 
       <div className='d-flex justify-content-around'>
-        <div><Button   variant="primary" type="submit">
-          { id==0 ?  "Add Product" : "Edit Product" }
-        </Button></div>
+        <div>
+          <Button   variant="success" type="submit">
+          { id==0 ?  "Add Product" : "Save Product" }
+          </Button>
+        </div>
 
-        <div><Button   variant="primary" onClick={previewProduct}  >
+        <div>
+          <Button   variant="primary" onClick={previewProduct}  >
           Preview
-        </Button></div>
-      </div>
+          </Button>
+        </div>
 
+      { formvalues.id ?  
+      <div onClick={() => deleteelement(formvalues.id, formvalues.category_id)}>
+          <Button   variant="danger"  >
+          Delete
+        </Button>
+      </div>
+      : null}
+
+        <div>
+          <Button   variant="secondary" onClick={clearformvalues}  >
+          Clear Form
+          </Button>
+        </div>
+
+      </div> 
     </Form>
     </div >
           <div className={`${privewStyle.name}`}>
@@ -373,14 +424,13 @@ let updateImagesArr = (e) => {
               </div>
             </div>
             <div className='d-flex justify-content-around align-items-center buttonscontianer'>
-            <Button   variant="primary" type="" onClick={formOperation} >
-              Add Product
-            </Button>
-            <Button   variant="primary" type=""  onClick={hideProduct} >
-              Edit Product
-            </Button>
-              
-              </div>       
+              <Button   variant="success" type="" onClick={formOperation} >
+                Save Products
+              </Button>
+              <Button   variant="primary" type=""  onClick={hideProduct} >
+                Complete Editing
+              </Button>
+            </div>       
           </div>
     </div>
   )

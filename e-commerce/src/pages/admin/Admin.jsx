@@ -42,7 +42,7 @@ export function Admin(prop) {
           <Route path='admin/:user/products' element={<Products/>} />
           <Route path='admin/:user/:category_id/:id' element={<Productdetails />} />
           <Route path='admin/:user/:category_id/:id/edit' element={<Addproduct />} />
-          <Route path='admin/:user/profile' element={<Profile/>} />
+          {/* <Route path='admin/:user/profile' element={<Profile/>} /> */}
           <Route path='*' element={<NotFound/>} />
           {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
         </Routes>
@@ -124,7 +124,7 @@ export function GetCategories (username){
         getAllcategories();
       }, []);
   
-      console.log(categories)
+      // console.log(categories)
   
       let usercategoryArr = []
       for (let i = 0; i < categories.length; i++) 
