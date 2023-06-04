@@ -72,7 +72,7 @@ export  function MytableofProducts(prop) {
                         <tr key={product.id}>
                             {/* <td>{product.id}</td> */}
                             <td>{product.title}</td>
-                            <td className="text-center">{ product.discountPercentage == 0 ? (product.price) : (<div className=""> <del>{product.price}</del> => <span>{ parseInt(product.price) * (100 - parseInt(product.discountPercentage) ) / 100}</span></div>)}</td>
+                            <td className="text-center">{ product.discountPercentage == 0 ? (product.price) : (<div className=""> <del>{product.price}</del> <span>{ parseInt(product.price) * (100 - parseInt(product.discountPercentage) ) / 100}</span></div>)}</td>
                             <td className="text-center" >{product.stock}</td>
                             <td className="d-flex m-auto justify-content-around">
                                 <NavLink to={`/admin/${user}/${product.category_id}/${product.id}/edit`}>

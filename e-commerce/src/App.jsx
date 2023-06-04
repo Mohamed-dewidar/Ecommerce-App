@@ -18,7 +18,7 @@ import UserViewProduct from "./pages/UserPage/UserViewProduct";
 
 function App() {
   const [authUser, setAuthUser] = useState({
-    loged: false,
+    loged: true,
     type: "admin",
     userName: "amrabrazek",
   });

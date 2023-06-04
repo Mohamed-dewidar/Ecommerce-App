@@ -1,18 +1,26 @@
+import "./css/admin.css";
+import axios from "axios";
 
 import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
 import { Route, Routes } from 'react-router-dom';
 import { NotFound } from "./Notfound";
-import { Adminhome } from "./Adminhome";
-import { Mynav } from "../../components/admin/Mynav";
-import { Products } from './Products';
-import { Profile } from './Profile';
-import { Productdetails } from './Productdetails';
-import { Addproduct } from './Addproduct';
-import Footer from '../../components/admin/Footer';
+// import Footer from '../../components/admin/Footer';
 import { UserContext, ProductsContext, CategoryContext } from "../../context"
-import "./css/admin.css";
 import { NavLink } from "react-router-dom";
+
+
+import { Mynav } from "../../components/admin/Mynav";
+import { Adminhome } from "./Adminhome";
+import { Products } from './Products';
+import { Addproduct } from './Addproduct';
+import { Productdetails } from './Productdetails';
+import { Profile } from './Profile';
+
+import UserAbout from '../../components/user/UserAbout';
+import RenewableEnergy from '../../components/user/RenewableEnergy';
+import ContactUs from '../../components/user/ContactUs';
+import Footer from '../../components/user/Footer';
+// import Products from '../../components/user/Products';
 
 
 
@@ -38,12 +46,16 @@ export function Admin(prop) {
           <Route path='*' element={<NotFound/>} />
           {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
         </Routes>
-        <NavLink to={`/admin/${prop}/product/0/edit`}>
-        <div className="addbutton"><i className=" text-success fs-1 bi bi-plus-circle-fill"></i></div>
-        </NavLink>  
 
-        
+         
+      <UserAbout />
+      <RenewableEnergy />
+      <ContactUs />
       <Footer />
+
+      <NavLink to={`/admin/${username}/product/0/edit`}>
+        <div className="addbutton"><i className=" text-dark fs-1 bi bi-plus-circle-fill"></i></div>
+        </NavLink> 
       </CategoryContext.Provider>
       </ProductsContext.Provider>
       </UserContext.Provider>
@@ -91,7 +103,7 @@ export function GetCategories (username){
       {
         if ( products[i].seller == username)
         {
-          categoriesArr = [...categoriesArr, products[i].category_id]
+          categoriesArr = [...categoriesArr, parseInt( products[i].category_id)]
         }
       }
   
@@ -112,7 +124,7 @@ export function GetCategories (username){
         getAllcategories();
       }, []);
   
-      // console.log(categories)
+      console.log(categories)
   
       let usercategoryArr = []
       for (let i = 0; i < categories.length; i++) 
@@ -123,10 +135,10 @@ export function GetCategories (username){
           }
           else 
           {
-              // console.log("error");
+              console.log("error");
           }
         }
-        // console.log(usercategoryArr)
+        console.log(usercategoryArr)
         return usercategoryArr
   }
   

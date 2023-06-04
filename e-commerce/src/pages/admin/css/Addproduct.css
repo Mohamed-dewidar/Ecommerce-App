@@ -4,8 +4,6 @@
     left: 10%;
     display: flex;
     flex-direction: column;
-    /* align-self: center; */
-    /* left: 2000px; */
     position: fixed;
     top: 200vh;
     background-color: white;
@@ -13,8 +11,6 @@
     border: 2px solid black;
     transition: all 0.5s ease;
 }
-
-
 
 .closesign {
     /* position: absolute; */
@@ -32,14 +28,13 @@
     left: 10%;
     display: flex;
     flex-direction: column;
-    /* align-self: center; */
-    /* left: 2000px; */
     position: fixed;
     top: 15vh;
     background-color: white;
     padding: 1rem;
     border: 2px solid black;
     transition: all 0.5s ease;
+    overflow: scroll;
 }
 
 img {
@@ -64,14 +59,31 @@ img {
 .parentcontainer{
     height: calc( 100% - 4rem  );
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* overflow: scroll; */
+    justify-content: center;
+    align-items: center;
+    /* overflow-y: scroll; */
 }
 
 .imagecontainer, .infocontainer{
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    /* height: 100%; */
     /* border: 2px solid blue; */
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
+    /* display: block; */
+    
+}
+
+.imagecontainer {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* border: 2PX solid black; */
 }
 
 .infocontainer {
@@ -95,7 +107,23 @@ del {
     height:60%;
     left: 15%;
     }
+    .parentcontainer
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+    .previewContainer2 {
+        overflow: hidden;
+    }
+
+    .carousel-item{
+        height: 400px ;
+    }
 } 
+
+
 
 @media screen and (min-width:2000px)
 {
@@ -106,3 +134,22 @@ del {
     left: 20%;
     }
 } 
+
+
+
+.carousel-item{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+  
+  .carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }

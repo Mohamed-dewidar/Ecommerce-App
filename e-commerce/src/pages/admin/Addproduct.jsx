@@ -1,11 +1,12 @@
 import React, { useContext, useState , useEffect} from 'react'
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { UserContext } from '../../context'
 import { useNavigate, useParams } from 'react-router-dom';
 import "./css/Addproduct.css";
-import { Products } from './Products';
+import { Carousel } from "react-bootstrap";
+
 
 export function Addproduct() {
   //  get the id of the product you want to edit 
@@ -65,26 +66,23 @@ export function Addproduct() {
   let formOperation = (e) => {
 		e.preventDefault();
 
-    // const { title, price, description, discountPercentage, stock, brand , category_id, image} = e.target.elements
-    // const newProduct = CreateNewProduct(title.value, description.value, price.value, discountPercentage.value, stock.value, brand.value, parseInt(category_id.value), user, image.value  );
 
-    if (id == 0) {
-      category_name = AllCategories[formvalues.category_id-1]
-    axios
-				.post(`http://localhost:3005/${category_name}`, formvalues)
-				.then((response) => {
-          console.log("done!")
-					navigate(`/admin/${user}/products`);
-				});
-      }
-    else {
-        axios.put(`http://localhost:3005/${category_name}/${id}`, formvalues).then(() => {
-				navigate(`/admin/${user}/products`);
-        
-			});
-      }
+  if (id == 0) {
+    category_name = AllCategories[formvalues.category_id-1]
+  axios
+      .post(`http://localhost:3005/${category_name}`, formvalues)
+      .then((response) => {
+        console.log("done!")
+        navigate(`/admin/${user}/products`);
+      });
+    }
+  else {
+      axios.put(`http://localhost:3005/${category_name}/${id}`, formvalues).then(() => {
+      navigate(`/admin/${user}/products`);
+      
+    });
+    }
 	};
-
 
 
   // handling errors for discount and title section
@@ -96,12 +94,14 @@ export function Addproduct() {
     stock: false,
   });
 
+  // change form values on change
   const handleChange = (event) => {
     setFormvalues({
       ...formvalues,
       [event.target.name]:event.target.value
     })
-
+  
+    // makeing sure discount is with in range
     if (event.target.name === 'discountPercentage'){
       const value = event.target.value;
       if (value >= 90 || value < 0 ) {
@@ -117,6 +117,8 @@ export function Addproduct() {
         });
       }
     }
+
+    // making sure the title doesn't start with anumber 
     else if (event.target.name === 'title'){
       const value = event.target.value;
       if (/^[^0-9].*/.test(value)) {
@@ -132,6 +134,8 @@ export function Addproduct() {
       })
     }
     } 
+
+    // making sure the price isn't negative
     else if (event.target.name === 'price'){
       const value = event.target.value;
       if (value < 0) {
@@ -147,6 +151,8 @@ export function Addproduct() {
       })
     }
   }
+
+  // making sure the there is stock
   else if (event.target.name === 'stock'){
     const value = event.target.value;
     if (value < 0) {
@@ -164,6 +170,7 @@ export function Addproduct() {
 }
 }
 
+//   show && hide preview
 const [privewStyle, setprivewStyle] = useState({
   name:"previewContainer"
 })
@@ -173,7 +180,6 @@ let previewProduct = () => {
     name:"previewContainer2"
   })
 }
-
 let hideProduct = () => {
   setprivewStyle({
     name:"previewContainer"
@@ -182,27 +188,22 @@ let hideProduct = () => {
 
 
 
-// })
-
-// console.log(imageArrCarrier)
-
+// adding image with maximum 3 images 
 let addimage = () => {
   if (formvalues.images.length < 3) {
     setFormvalues( {...formvalues,images: [...formvalues.images,""]})
   }
 }
-console.log(formvalues.images)
+// console.log(formvalues.images)
 
+// remove image 
 let removeimage = (e) => {
-
-  // console.log(e.target.value)
-  // console.log(formvalues.images)
   setFormvalues ({...formvalues, images: formvalues.images.filter((element, index, array) => {return index !== (array.length - 1)})})
-  console.log(formvalues.images)
+  // console.log(formvalues.images)
 }
 console.log(formvalues.images)
 
-
+// change the url of an image
 let updateImagesArr = (e) => {
   let imageArrCarrier = formvalues.images
   console.log(imageArrCarrier)
@@ -210,19 +211,6 @@ let updateImagesArr = (e) => {
   console.log(imageArrCarrier)
   setFormvalues( {...formvalues, images: imageArrCarrier})
   console.log(formvalues.images)
-}
-
-
-
-
-let [imageInput, setImageInput] = useState([])
-
-
-// let imagesfornew = []
-let getimages = (e) => {
-  setFormvalues ({
-    images: [...formvalues.images, e.target.defaultValue]
-  })
 }
 
 // let imageInputhtml = imageInput.map((image, index) => {
@@ -283,7 +271,7 @@ let getimages = (e) => {
 
       <Form.Group className="mb-3" >
         <Form.Label>Brand name</Form.Label>
-        <Form.Control type="text" name="brand" placeholder="Brand" defaultValue={formvalues.brand}/>
+        <Form.Control type="text" name="brand" placeholder="Brand" defaultValue={formvalues.brand} onChange={handleChange}/>
       </Form.Group>
 
       <Form.Group>
@@ -342,7 +330,36 @@ let getimages = (e) => {
             {/* <div className='closesign'> <i class="bi bi-x-lg"></i></div> */}
             <div className='closesign' onClick={hideProduct} ><i class="bi bi-x-square-fill"></i></div>
             <div className='d-flex parentcontainer '>
-              <div className=' imagecontainer '>{ formvalues.thumbnail ? <img src={formvalues.thumbnail} alt="product image" /> : <div className='d-flex w-100 h-100 justify-content-center align-items-center'><h1>No image yet!!</h1></div>}</div>
+            <div className='imagecontainer'>
+              {formvalues.images.length > 1 ? (
+                
+              <Carousel>
+                <Carousel.Item className='carousel-item'  interval={2000}>
+                  <img
+                    src= {formvalues.thumbnail}
+                    alt=""
+                  />
+                </Carousel.Item>
+              {formvalues.images.map((item, index) => {
+                return <Carousel.Item className='carousel-item' key={index}  interval={2000}>
+                  <img
+                    src= {item}
+                    alt=""
+                  />
+                </Carousel.Item>
+              })}
+              </Carousel>
+
+              ) : (
+                formvalues.thumbnail ? (
+                  <img src={formvalues.thumbnail} alt="product image" />
+                ) : (
+                  <div className='d-flex w-100 h-100 justify-content-center align-items-center'>
+                    <h1>No image yet!!</h1>
+                  </div>
+                )
+              )}
+            </div>
               <div className=' infocontainer'>
                 <div className='w-100 text-center'><h1>{formvalues.title}</h1></div>
                 <hr />

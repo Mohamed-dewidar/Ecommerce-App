@@ -10,18 +10,18 @@ export default function Slider() {
 
   const user = useContext(UserContext)
   const categories = GetCategories(user)
+  console.log(categories)
     
   return (
-    <div className=' h-75'>
+    <div className=''>
        <Carousel>
         {categories.map((category) => {
-           return <Carousel.Item className='carousel-item' key={category.id} onClick={() => console.log(category.title)} interval={3000}>
+           return <Carousel.Item className='carousel-itemx' key={category.id}  interval={2000}>
             <img
               src= {category.image_url}
               alt=""
             />
-            
-            <Carousel.Caption>
+            <Carousel.Caption className="text-dark">
               <h3>{category.title}</h3>
               <p>{category.description}</p>
             </Carousel.Caption>

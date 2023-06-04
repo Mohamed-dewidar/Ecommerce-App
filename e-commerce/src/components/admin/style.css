@@ -7,9 +7,3 @@
     height: 4.6rem;
   }
 
-
-  .carousel-item img {
-    height: 100vh; /* set the desired height */
-    width: 100%; /* set the width to 100% to fill the container */
-    object-fit: cover; /* use object-fit to ensure that the image fills the container */
-  }

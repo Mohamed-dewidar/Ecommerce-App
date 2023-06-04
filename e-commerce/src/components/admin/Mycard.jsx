@@ -13,7 +13,7 @@ export function Mycard(prop) {
 
   return (
     <div className='m-2'> 
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '18rem', height: "430px" }}>
       <Card.Img style={{ height:"200px", objectFit: "contain"}} variant="top" src={product.thumbnail} />
       <Card.Body>
         <Card.Title className='text-center'>{product.title}</Card.Title>
@@ -24,7 +24,14 @@ export function Mycard(prop) {
         <Card.Text className='d-flex justify-content-center'>
         { product.discountPercentage == 0 ? (<strong className='h3'>{product.price}$</strong> ) : (<div className=""> <del>{product.price}</del> <strong className='h3'>{ parseInt(product.price) * (100 - parseInt(product.discountPercentage) ) / 100}$</strong></div>)} 
         </Card.Text>
-        <div className='d-flex justify-content-center'><Button onClick={() => navigate(`/admin/${product.seller}/${product.category_id}/${product.id}/edit`)} variant="primary">Edit Product</Button></div>
+
+        <div className='d-flex justify-content-center'>
+          <Button 
+            onClick={() => navigate(`/admin/${product.seller}/${product.category_id}/${product.id}/edit`)} 
+            variant="outline-dark">Edit Product
+          </Button>
+        </div>
+
       </Card.Body>
     </Card>
     </div>
