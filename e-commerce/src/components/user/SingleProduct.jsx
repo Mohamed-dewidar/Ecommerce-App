@@ -1,19 +1,52 @@
-import React from 'react';
-import './singleProduct.css';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useContext } from "react";
+import "./singleProduct.css";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { AuthContext } from "../../context";
+import { userApi } from "../../api/userApi";
+import { Toast } from "../CustomeComponents/Toast";
 export default function SingleProduct() {
   let [product, setProduct] = useState({});
   let { category, id } = useParams();
+  const { authUser, setAuthUser } = useContext(AuthContext);
+  const navigator = useNavigate();
+  const [error, setError] = useState({
+    cart: "",
+    wishlist: "",
+    cartMsg: "",
+  });
   useEffect(
     function () {
       axios.get(`http://localhost:3005/${category}/${id}`).then((response) => {
         setProduct(response.data);
       });
     },
-    [category, id]
+    [category, id],
   );
+
+  const addItemHandler = async (e) => {
+    if (!authUser.id) {
+      navigator("/login");
+      return;
+    }
+
+    let res = await userApi.addToCart(product, category, authUser.id);
+
+    setError({
+      ...error,
+      cart: res.success,
+      msg: res.msg,
+    });
+
+    setTimeout(() => {
+      setError({
+        ...error,
+        cart: "",
+        msg: "",
+      });
+    }, 1000);
+  };
 
   return (
     <div className="productContainer flex-column flex-lg-row align-items-lg-start align-items-center">
@@ -50,7 +83,7 @@ export default function SingleProduct() {
                 src={
                   product.images
                     ? product.images[0]
-                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+                    : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                 }
                 className="d-block w-100"
                 alt="..."
@@ -61,7 +94,7 @@ export default function SingleProduct() {
                 src={
                   product.images
                     ? product.images[1]
-                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+                    : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                 }
                 className="d-block w-100"
                 alt="..."
@@ -72,7 +105,7 @@ export default function SingleProduct() {
                 src={
                   product.images
                     ? product.images[2]
-                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+                    : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                 }
                 className="d-block w-100"
                 alt="..."
@@ -112,7 +145,23 @@ export default function SingleProduct() {
           <span>USD</span> {product.price}
         </div>
         <div className="seller">{product.seller}</div>
-        <div className="btn btn-dark custom-btn">Add to Cart</div>
+        <div
+          className="btn btn-dark custom-btn position-relative"
+          onClick={addItemHandler}
+        >
+          {" "}
+          Add to Cart
+        </div>
+        {error.cart == "false" && (
+          <p className="text-center lead text-danger align-self-center">
+            {error.msg}
+          </p>
+        )}
+        {error.cart == "true" && (
+          <p className="text-center lead text-success align-self-center">
+            {error.msg}
+          </p>
+        )}
         <div className="btn btn-danger custom-btn">Add to Whishlist</div>
       </div>
     </div>

@@ -22,24 +22,23 @@
       "cart": [
         {
           "id": 2,
-          "title": "Guy Laroche Navy Wool Suit",
-          "description": "A classic suit that features a navy blue color, a wool fabric, a single-breasted jacket with a notch lapel, a two-button closure, and flap pockets, and a flat-front trouser with a zip fly and side pockets. It is a slim fit suit that can be worn for formal or business occasions.",
-          "discountPercentage": 12,
-          "rating": 4.6,
-          "stock": 153,
-          "brand": "Levis",
-          "category_id": 2,
+          "title": "Samsung Galaxy S21",
+          "description": "Samsung Galaxy S21 is a flagship smartphone that was launched on January 2021.",
+          "price": 500,
+          "discountPercentage": 16.67,
+          "rating": 4.5,
+          "stock": "189",
+          "brand": "Samsung",
+          "category_id": 1,
           "seller": "amrabrazek",
-          "thumbnail": "https://i.pinimg.com/originals/35/97/92/35979264ad971bc38aa847fbc822ebc8.jpg",
+          "thumbnail": "https://thegadgetflow.com/wp-content/uploads/2021/01/Samsung-Galaxy-S21-Series-05.jpg",
           "images": [
-            "https://i.pinimg.com/originals/00/80/63/0080636467ad13f696cfddca6f32c618.jpg",
-            "https://i.pinimg.com/474x/2c/14/66/2c14668c2fc532c8efa6d84091220cb5--tweed-blazer-blazer-jacket.jpg",
-            "https://th.bing.com/th/id/R.411886ee904063314b78aefd6f7a746b?rik=WCvmCQHGbsmclQ&riu=http%3a%2f%2fthmb.inkfrog.com%2fthumbn%2fMonkeysuitvintage%2f037_060.JPG%3d600&ehk=56W3X6mjrxjJSNfdJNghPTMSlRpzWToWTjKyl4G9eUM%3d&risl=&pid=ImgRaw&r=0"
+            "https://th.bing.com/th/id/OIP.Cg6_ux4VXs6yWJWjll_UwgHaE8?pid=ImgDet&rs=1",
+            "https://th.bing.com/th/id/OIP.Cg6_ux4VXs6yWJWjll_UwgHaE8?pid=ImgDet&rs=1",
+            "https://fdn.gsmarena.com/imgroot/reviews/21/samsung-galaxy-s21-and-s21-ultra-handson/lifestyle/-1200w5/gsmarena_021.jpg"
           ],
-          "category": "Clothing"
-        },
-        {
-          "category": "Clothing"
+          "category": "Electronics",
+          "count": 1
         }
       ],
       "type": "customer"
