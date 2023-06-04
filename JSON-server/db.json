@@ -22,22 +22,42 @@
       "cart": [
         {
           "id": 2,
-          "title": "Samsung Galaxy S21",
-          "description": "Samsung Galaxy S21 is a flagship smartphone that was launched on January 2021.",
-          "price": 500,
-          "discountPercentage": 16.67,
-          "rating": 4.5,
-          "stock": "189",
-          "brand": "Samsung",
-          "category_id": 1,
+          "title": "LG InstaView Door-in-Door Refrigerator",
+          "description": "A smart refrigerator that features a InstaView Door-in-Door design that lets you see inside without opening the door and access your favorite items with a simple knock.",
+          "price": 3999,
+          "discountPercentage": 12,
+          "rating": 4.6,
+          "stock": 153,
+          "brand": "LG",
+          "category_id": 3,
           "seller": "amrabrazek",
-          "thumbnail": "https://thegadgetflow.com/wp-content/uploads/2021/01/Samsung-Galaxy-S21-Series-05.jpg",
+          "thumbnail": "https://th.bing.com/th/id/R.daf59bbc65445b81d7383d9db69ebca9?rik=0wNe%2fCOLH%2bifPg&pid=ImgRaw&r=0",
           "images": [
-            "https://th.bing.com/th/id/OIP.Cg6_ux4VXs6yWJWjll_UwgHaE8?pid=ImgDet&rs=1",
-            "https://th.bing.com/th/id/OIP.Cg6_ux4VXs6yWJWjll_UwgHaE8?pid=ImgDet&rs=1",
-            "https://fdn.gsmarena.com/imgroot/reviews/21/samsung-galaxy-s21-and-s21-ultra-handson/lifestyle/-1200w5/gsmarena_021.jpg"
+            "https://th.bing.com/th/id/R.f67cc30ece8859a8ece29a0310bfc884?rik=cBdTrGsnRMFrPA&riu=http%3a%2f%2fwww.ibuywant.net%2fwp-content%2fuploads%2f2016%2f12%2flg-instaview-door-in-door-refrigerator-open.jpg&ehk=kyOq8hSAE4soxWdblFWRGkxMTA3tF7dkvafhDFpdlic%3d&risl=&pid=ImgRaw&r=0",
+            "https://premierappliancestore.com/image/data/2019/stainless-steel-lg-electronics-french-door-refrigerators-lmxs30796s-64_1000.jpg",
+            "https://th.bing.com/th/id/R.fb4edec4c9faaa7f33b06e9d20b4e11f?rik=rM4Pvj6wtUuCAg&riu=http%3a%2f%2fblog.mrsgs.com%2fwp-content%2fuploads%2f2017%2f03%2fLFXS30796D-InstaView-Door-in-Door-Drama-Lifestyle.png&ehk=VPL1MDKkv5oQKXVjRfd720YdIWtMcNBMLwRJwj1kkgI%3d&risl=&pid=ImgRaw&r=0"
           ],
-          "category": "Electronics",
+          "category": "Home-Appliances",
+          "count": 1
+        },
+        {
+          "id": 2,
+          "title": "Realeather Leather Craft Lace",
+          "description": "A spool of real leather lace that can be used for various leathercraft projects, such as braiding, beading, lacing, and stitching. It is 5/32 inch wide and 25 yards long, and comes in different colors, such as black, brown, tan, and white.",
+          "price": 29.9,
+          "discountPercentage": 12,
+          "rating": 4.6,
+          "stock": 153,
+          "brand": "Realeather",
+          "category_id": 4,
+          "seller": "amrabrazek",
+          "thumbnail": "https://th.bing.com/th/id/R.f88a87355abceed6f0944b2946252aee?rik=2ee5jTnMJutXrA&riu=http%3a%2f%2ftools.notionsmarketing.com%2fnmcpics%2f466%2f466801PK-IT_IM.jpg&ehk=gVAfhh%2b1mJU%2bFr8BXDf8pg5Ki3znx8hzWGVS2paeAPo%3d&risl=&pid=ImgRaw&r=0",
+          "images": [
+            "https://th.bing.com/th/id/OIP.fZ1avGupl-ei_MxqIBwKMgAAAA?pid=ImgDet&w=309&h=350&rs=1",
+            "https://th.bing.com/th/id/R.73a3882017d09923f9f245ea28714d78?rik=ugNo2mDdSxUdjQ&riu=http%3a%2f%2fdemandware.edgesuite.net%2faamm_prd%2fon%2fdemandware.static%2f-%2fSites-joann-product-catalog%2fdefault%2fdw93d54243%2fimages%2fhi-res%2f14%2f14358097.jpg&ehk=avwLRnip4lhSfLuJh27hJKi%2fAtSwBs8BqsSOPaMhPV0%3d&risl=&pid=ImgRaw&r=0",
+            "https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dwed165069/images/hi-res/13/13190517.jpg"
+          ],
+          "category": "Leather",
           "count": 1
         }
       ],

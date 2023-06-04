@@ -57,11 +57,10 @@ const itemCountDecHandler = async (e) =>{
 
   return (
     <div
-      className={`user-cart ${
+      className={`cart-container ${
         showCart ? "show" : ""
       } d-flex flex-column gap-5 align-item-center`}
     >
- 
 
       {userCart.map((item, index) => (
           <section

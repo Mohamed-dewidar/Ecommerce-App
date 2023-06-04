@@ -88,9 +88,12 @@ const addToCart = async (item, category, uuid) => {
 
 
     let res = await axios.put(`${BASE_URL}/users/${uuid}`, user);
+    userCart = res.data.cart
+    console.log(res.data)
     resObj = {
       success: "true",
       msg: "Item was added",
+      data: {userCart}
     };
   } catch (e) {
     resObj = { success: "false", msg: e.message };

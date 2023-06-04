@@ -3,13 +3,14 @@ import "./singleProduct.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { AuthContext } from "../../context";
+import { AuthContext, CartContext } from "../../context";
 import { userApi } from "../../api/userApi";
 import { Toast } from "../CustomeComponents/Toast";
 export default function SingleProduct() {
   let [product, setProduct] = useState({});
   let { category, id } = useParams();
   const { authUser, setAuthUser } = useContext(AuthContext);
+  const {userCart, setUserCart} = useContext(CartContext)
   const navigator = useNavigate();
   const [error, setError] = useState({
     cart: "",
@@ -32,7 +33,9 @@ export default function SingleProduct() {
     }
 
     let res = await userApi.addToCart(product, category, authUser.id);
-
+    if(res.success == 'true'){
+      setUserCart([...res.data.userCart])
+    }
     setError({
       ...error,
       cart: res.success,
