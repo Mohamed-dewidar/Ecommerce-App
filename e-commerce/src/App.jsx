@@ -26,7 +26,7 @@ function App() {
   const [authUser, setAuthUser] = useState({
     loged: false,
     type: "admin",
-    userName: "amrabrazek"
+    userName: "amrabrazek",
   });
 
   console.log(authUser.loged);
