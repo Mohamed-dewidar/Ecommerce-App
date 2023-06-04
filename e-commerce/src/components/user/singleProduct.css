@@ -17,8 +17,11 @@ div.sliderContainer {
 }
 
 .customize img {
-  min-width: 100% !important;
-  object-fit: cover;
+  max-width: 100% !important;
+  object-fit: contain;
+  
+
+  
 }
 
 div.infoContainer  {

@@ -7,9 +7,7 @@ export default function User() {
   return (
     <div>
       <Routes>
-        <Route path="" element={<UserCategories />} />
-        <Route path="/products/:category" element={<UserProducts />} />
-        <Route path="/products/:category/:id" element={<UserViewProduct />} />
+        
       </Routes>
     </div>
   );

@@ -27,39 +27,34 @@ import Footer from '../../components/user/Footer';
 export function Admin(prop) {
 
   let {username} = prop
-  let userproductArr = GetProducts(username)
-  let usercategoryArr = GetCategories(username)
 
   
   return (
-    <div>
-      <UserContext.Provider value = {username}>
-      <ProductsContext.Provider value = {userproductArr}>
-      <CategoryContext.Provider value = {usercategoryArr}>
-      <Mynav />
-        <Routes>
-          <Route path='admin/:user/home' element={<Adminhome/>} />
-          <Route path='admin/:user/products' element={<Products/>} />
-          <Route path='admin/:user/:category_id/:id' element={<Productdetails />} />
-          <Route path='admin/:user/:category_id/:id/edit' element={<Addproduct />} />
-          {/* <Route path='admin/:user/profile' element={<Profile/>} /> */}
-          <Route path='*' element={<NotFound/>} />
-          {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
-        </Routes>
+    <></>
+    // <div>
+    //   <UserContext.Provider value = {username}>
+    //   <Mynav />
+    //     <Routes>
+    //       {/* <Route path='admin/:user/home' element={<Adminhome/>} /> */}
+    //       {/* <Route path='admin/:user/products' element={<Products/>} /> */}
+    //       {/* <Route path='admin/:user/:category_id/:id' element={<Productdetails />} /> */}
+    //       {/* <Route path='admin/:user/:category_id/:id/edit' element={<Addproduct />} /> */}
+    //       {/* <Route path='admin/:user/profile' element={<Profile/>} /> */}
+    //       {/* <Route path='*' element={<NotFound/>} /> */}
+    //       {/* <Route path='admin/products/:id' element={<ProductDetails />} /> */}
+    //     </Routes>
 
          
-      <UserAbout />
-      <RenewableEnergy />
-      <ContactUs />
-      <Footer />
+    //   <UserAbout />
+    //   <RenewableEnergy />
+    //   <ContactUs />
+    //   <Footer />
 
-      <NavLink to={`/admin/${username}/product/0/edit`}>
-        <div className="addbutton"><i className=" text-dark fs-1 bi bi-plus-circle-fill"></i></div>
-        </NavLink> 
-      </CategoryContext.Provider>
-      </ProductsContext.Provider>
-      </UserContext.Provider>
-    </div>
+    //   <NavLink to={`/admin/${username}/product/0/edit`}>
+    //     <div className="addbutton"><i className=" text-dark fs-1 bi bi-plus-circle-fill"></i></div>
+    //     </NavLink> 
+    //   </UserContext.Provider>
+    // </div>
   )
 }
 
