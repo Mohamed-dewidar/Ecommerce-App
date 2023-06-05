@@ -24,7 +24,7 @@ import { Addproduct } from "./pages/admin/Addproduct";
 function App() {
   const [userCart, setUserCart] = useState([]);
   const [authUser, setAuthUser] = useState({
-    loged: false,
+    loged: true,
     type: "admin",
     userName: "amrabrazek",
   });
