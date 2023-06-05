@@ -10,6 +10,7 @@
 div.navLogo {
   font-size: 2rem;
   font-weight: 900;
+  color: #f27030;
 }
 div.navLogo:hover {
   cursor: pointer;
@@ -41,7 +42,7 @@ div.cart svg {
   height: 30px;
 }
 
-.user-cart:hover{
+.user-cart:hover {
   cursor: pointer;
 }
 
@@ -53,4 +54,15 @@ div.cart svg {
   div.navLogo {
     font-size: 3rem;
   }
+}
+
+div.slogan {
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+div.slogan span {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #f27030;
 }
