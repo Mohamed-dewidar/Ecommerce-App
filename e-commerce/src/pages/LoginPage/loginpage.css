@@ -1,7 +1,8 @@
 .login {
   height: 100vh;
-  background-image: url("../../assets/images/loginBG.svg");
-
+  background-image: url("../../assets/images/BG.svg");
+background-repeat: no-repeat;
+  background-size: cover;
   animation: animateLoginBG alternate infinite 5s;
 }
 
@@ -41,11 +42,11 @@
 
 @keyframes animateLoginBG {
   from {
-    background-size: 20%;
+
     background-position: top;
   }
   to {
-    background-size: 40%;
+    
     background-position: bottom;
   }
 }

@@ -70,7 +70,7 @@ const getCustomer = async (user) => {
       throw new Error("Email doesn't exits");
     }
   } catch (e) {
-    console.log(e);
+    return ans
   }
   return ans;
 };
@@ -85,7 +85,7 @@ const getAdmin = async (user) => {
       throw new Error("Email doesn't exits");
     }
   } catch (e) {
-    console.log(e);
+    return ans
   }
   return ans;
 };

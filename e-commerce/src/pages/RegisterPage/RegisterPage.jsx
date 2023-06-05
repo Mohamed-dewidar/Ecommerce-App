@@ -55,18 +55,32 @@ export function RegisterPage() {
         submit: true,
         submitText: "Some Data Aren't Valid",
       });
+      setTimeout(() => {
+        setError({
+          ...error,
+          submit: false,
+          submitText: "",
+        });
+      }, 1000);
       return;
     }
 
     try {
       let checkEmailExists = await authApi.getUser(user.email, user.type);
-      
+
       if (checkEmailExists) {
         setError({
           ...error,
           submit: true,
           submitText: "This Email Does Exists",
         });
+        setTimeout(() => {
+          setError({
+            ...error,
+            submit: false,
+            submitText: "",
+          });
+        }, 1000);
         return;
       }
 
@@ -74,7 +88,6 @@ export function RegisterPage() {
 
       let activateRes = await authApi.activationEmailSend(user);
       navigator("/login");
-
     } catch (e) {
       console.log(e);
     }
@@ -103,7 +116,6 @@ export function RegisterPage() {
       });
     }
   };
-  
 
   // Check Password again and confirm that both passwords do match
   const passwordMatchHandler = (e) => {
@@ -120,10 +132,10 @@ export function RegisterPage() {
     }
   };
 
-
   return (
     <div className="register d-flex flex-column justify-content-center align-items-center">
       {/* <h1 className="">Register to EHCO</h1> */}
+      <h1 className="text-dark">EHCO</h1>
       <Form
         onSubmit={submitHandler}
         className="register-form bg-dark p-5 d-flex flex-column"
@@ -137,6 +149,7 @@ export function RegisterPage() {
             type="email"
             placeholder="Enter email"
             name="email"
+            className={`${error.email? "border border-3 border-danger": "" }`}
             required
           />
 
@@ -154,6 +167,7 @@ export function RegisterPage() {
             type="password"
             placeholder="Password"
             name="password"
+            className={`${error.password? "border border-3 border-danger": "" }`}
             required
           />
           {error.password && (
@@ -175,6 +189,7 @@ export function RegisterPage() {
             type="password"
             placeholder="Password"
             name="confirmPassword"
+            className={`${error.confirmPassword? "border border-3 border-danger": "" }`}
             required
           />
           {error.confirmPassword && (

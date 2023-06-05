@@ -1,8 +1,9 @@
 .register {
   height: 100vh;
-  background-image: url("../../assets/images/registerBG.svg");
-
-  animation: animateRegisterBG alternate infinite 5s;
+  background-image: url("../../assets/images/BG.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: animateRegisterBG alternate infinite 1s;
 }
 
 .register > h1 {
@@ -19,11 +20,13 @@
 
 @keyframes animateRegisterBG {
   from {
-    background-size: 20%;
-    background-position: top ;
+    /* background-size: 20%; */
+    background-position: 10% ;
+    
   }
   to {
-    background-size: 40%;
-    background-position: bottom ;
+    /* background-size: 40%; */
+   
+    background-position: 100% ;
   }
 }

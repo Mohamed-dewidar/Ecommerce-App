@@ -42,18 +42,34 @@ export function LoginPage() {
         formValues.userType,
       );
 
-      loginJS.checkDataIsWrongBeforeLogin(user, formValues, setError, error);
-      loginJS.checkIfUserIsActive(user, error, setError);
+      let resObj1 = loginJS.checkDataIsWrongBeforeLogin(user, formValues);
 
-      setError({ ...error, submit: false, submitText: "" });
-      setAuthUser({ ...user, loged: true });
+      let resObj2 = await loginJS.checkIfUserIsActive(user);
+
+      if (resObj1.success == "false" || resObj2.success == "false") {
+        let msg = resObj1.success == "false" ? resObj1.msg : resObj2.msg;
+        setError({
+          ...error,
+          submit: true,
+          submitText: msg,
+        });
+        setTimeout(() => {
+          setError({
+            ...error,
+            submit: false,
+            submitText: "",
+          });
+        }, 1000);
+        return;
+      }
+
+      setAuthUser({ ...user });
 
       user.type === "admin"
         ? navigator(`/admin/${user.userName}/home`)
         : navigator("/");
-
     } catch (e) {
-      console.log(e);
+      return;
     }
   };
 
@@ -89,7 +105,7 @@ export function LoginPage() {
 
   return (
     <div className="login d-flex flex-column justify-content-center align-items-center">
-      <h1 className="">EHCO</h1>
+      <h1 className="text-dark">EHCO</h1>
       <Form
         onSubmit={submitHandler}
         className="login-form bg-dark p-5 d-flex flex-column"
@@ -103,6 +119,7 @@ export function LoginPage() {
             type="email"
             placeholder="Enter email"
             name="email"
+            className={`${error.email ? "border border-3 border-danger" : ""}`}
             required
           />
 
@@ -120,6 +137,9 @@ export function LoginPage() {
             type="password"
             placeholder="Password"
             name="password"
+            className={`${
+              error.password ? "border border-3 border-danger" : ""
+            }`}
             required
           />
           {error.password && (

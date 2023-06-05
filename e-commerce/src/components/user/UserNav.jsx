@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import './userNav.css';
-import { useNavigate } from 'react-router-dom';
-import { Cart } from './Cart';
-import { AuthContext, ProductsContext } from '../../context';
-import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import "./userNav.css";
+import { useNavigate } from "react-router-dom";
+import { Cart } from "./Cart";
+import { AuthContext, ProductsContext } from "../../context";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 export default function UserNav() {
   let params = useParams();
   let allProducts = [];
-  if ('category' in params && !('id' in params)) {
+  if ("category" in params && !("id" in params)) {
     let { category } = params;
     axios.get(`http://localhost:3005/${category}/`).then((response) => {
       for (let i = 1; i < response.data.length; i++) {
@@ -18,7 +18,7 @@ export default function UserNav() {
     });
   }
 
-  const { authUser } = useContext(AuthContext);
+  const { authUser , setAuthUser} = useContext(AuthContext);
   const { products, setProducts } = useContext(ProductsContext);
   let navigate = useNavigate();
   const [navItems, setNavItems] = useState({
@@ -26,12 +26,12 @@ export default function UserNav() {
     showWishlist: false,
   });
   function goHome() {
-    navigate('/');
+    navigate("/");
   }
 
   const cartHandler = () => {
     if (!authUser.id) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
     setNavItems({
@@ -75,19 +75,32 @@ export default function UserNav() {
     </div>
   );
 
+  const logoutHandler = () => {
+    setAuthUser({})
+   
+  }
+
   return (
     <div className="position-relative">
       <div className="navTop">
         <div className="navLogo" onClick={goHome}>
           ECHO
         </div>
-        {'category' in params ? ('id' in params ? slogan : navSearch) : slogan}
+        {"category" in params ? ("id" in params ? slogan : navSearch) : slogan}
         <div className="cart">
           <div>
             {authUser.userName ? (
-              authUser.userName
+              <div className="d-flex flex-column justify-content-around align-items-center">
+                <p>{authUser.userName}</p>
+                <button className="btn btn-outline-danger" onClick={logoutHandler}>Logout</button>
+              </div>
             ) : (
-              <span onClick={() => navigate('/login')}>Sign In</span>
+              <span
+                className="btn btn-success"
+                onClick={() => navigate("/login")}
+              >
+                Sign In
+              </span>
             )}
           </div>
 

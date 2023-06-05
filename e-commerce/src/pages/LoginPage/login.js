@@ -1,34 +1,54 @@
 import { authApi } from "../../api/authApi";
 
-
-
 const checkDataIsWrongBeforeLogin = (user, formValues, setError, error) => {
+  let resObj = {
+    success: '',
+    msg: ''
+  }
+  try {
     if (!user || user.password !== formValues.password) {
-      setError({
-        ...error,
-        submit: true,
-        submitText: "Check Your Login Details !!!!",
-      });
-      throw new Error('Check Login Details !!!')
+      throw new Error("Check Login Details !!!");
     }
-}
+    resObj = {
+      success: 'true',
+      msg: ''
+    }
+
+  } catch (e) {
+    resObj = {
+      success: 'false',
+      msg: e.message
+    }
+  }
+  return resObj
+};
 
 const checkIfUserIsActive = async (user, error, setError) => {
-  if (!user.active) {
-      console.log(user.active)
-      setError({
-        ...error,
-        submit: true,
-        submitText: "Activate Your Account, Activation Email was Sent",
-      });
-      let sendActiveEmailRes = await authApi.activationEmailSend(user)
-      throw new Error('Actviate your account !!!')
+  let resObj = {
+    success: '',
+    msg: ''
+  }
+  try {
+    if (user && !user.active) {
+      
+      throw new Error("Actviate your account, Activation mail was sent !!!");
     }
-    
-}
-
+     resObj = {
+      success: 'true',
+      msg: ''
+    }
+   
+  } catch (e) {
+     resObj = {
+      success: 'false',
+      msg: e.message
+    }
+    let sendActiveEmailRes = await authApi.activationEmailSend(user);
+  }
+  return resObj
+};
 
 export const loginJS = {
-    checkDataIsWrongBeforeLogin,
-    checkIfUserIsActive
-}
+  checkDataIsWrongBeforeLogin,
+  checkIfUserIsActive,
+};

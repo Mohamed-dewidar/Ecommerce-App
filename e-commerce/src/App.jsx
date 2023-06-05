@@ -29,10 +29,7 @@ import { Addproduct } from './pages/admin/Addproduct';
 function App() {
   const [userCart, setUserCart] = useState([]);
   const [products, setProducts] = useState([]);
-  const [authUser, setAuthUser] = useState({
-    type: 'admin',
-    userName: 'amrabrazek',
-  });
+  const [authUser, setAuthUser] = useState({});
 
   return (
     <div>
