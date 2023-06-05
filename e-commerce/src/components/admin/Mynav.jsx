@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context'
+import { UserContext,  AuthContext} from '../../context'
 import '../user/userNav.css';
 
 export  function Mynav() {
