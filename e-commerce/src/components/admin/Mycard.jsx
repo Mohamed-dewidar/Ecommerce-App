@@ -13,7 +13,7 @@ export function Mycard(prop) {
 
   return (
     <div className='m-2'> 
-      <Card style={{ width: '18rem', height: "500px" }}>
+      <Card style={{ width: '18rem', height: "450px" }}>
       <Card.Img style={{ height:"200px", objectFit: "contain"}} variant="top" src={product.thumbnail} />
       <Card.Body>
         <Card.Title className='text-center'>{product.title}</Card.Title>

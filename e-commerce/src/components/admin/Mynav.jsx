@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,9 @@ import '../user/userNav.css';
 
 export  function Mynav() {
 
+  let [logouicon, SetLogouticon] = useState ({
+    show:false,
+  })
   const value = useContext(UserContext)
   let user = value
 
@@ -16,20 +19,20 @@ export  function Mynav() {
     navigate(`/admin/${user}/home`);
   }
 
+  // let showlogouticon = () => {
+  //   SetLogouticon({show: true});
+  // }
+  // let disappericon = () => {
+  //   SetLogouticon({show: false});
+  // }
+
+  let logout = () => {
+    navigate(`/login`)
+  }
+
   return (
     <div className='my-3'>
-        {/* <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home"><NavLink className="nav-link" to="/home">ECOM</NavLink ></Navbar.Brand>
-          <Nav className="ms-auto">
-            <NavLink className="nav-link" to={`admin/${user}/home`}>Home</NavLink >
-            <NavLink className="nav-link" to={`admin/${user}/products`}>Products</NavLink >
-            <NavLink className="nav-link" to={`admin/${user}/product/0/edit`}>Add product</NavLink >
-            <NavLink className="nav-link" to={`admin/${user}/Profile`}>{user}<i class="bi bi-person-circle m-2"></i></NavLink >
-          </Nav>
-        </Container>
-      </Navbar>
-       */}
+
 
       <div>
       <div className="navTop align-items-center d-flex">
@@ -57,11 +60,21 @@ export  function Mynav() {
           </NavLink >
 
           {/* <NavLink className="nav-link" to={`admin/${user}/Profile`}> */}
-            <div className='d-flex' ><strong className='m-1  fs-5'>{user}</strong>
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-          </svg></div>
+
+            <div className='d-flex dropdown' >
+              <strong className='m-1  fs-5'>{user}</strong>
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            </div>
+            
+            <div className='d-flex cursor-pointer' onClick={logout}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+                <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+            </div>
+            
           {/* </NavLink > */}
 
 

@@ -45,8 +45,10 @@ export  function MytableofProducts(prop) {
             .delete(`http://localhost:3005/${cureenttcategory}/${id}`)
             .then((response) => {
                 console.log("deleted successfully")
+                // products = GetProducts(user)
+
                 navigate(`/admin/${user}/products`);
-                products = GetProducts(user)
+                
             })
             .catch((error) => {
                 console.log("error");
@@ -79,7 +81,7 @@ export  function MytableofProducts(prop) {
                                     <i className='fs-2 text-info mx-1 bi bi-pencil-square'></i>
                                 </NavLink>
 
-                                {/* <div onClick={() => deleteelement(product.id)}><i  className='fs-2 text-danger mx-1 bi bi-trash3-fill'></i></div> */}
+                                {/* <div onClick={() => deleteelement(product.id)}><i  className='fs-2 text-danger mx-1 bi bi-trash3-fill '></i></div> */}
                                 
                                 <NavLink to={`/admin/${user}/${product.category_id}/${product.id}`}>
                                     <i className='fs-2 text-warning mx-1 bi bi-eye-fill'></i>

@@ -478,72 +478,80 @@ export function Addproduct() {
         </div>
         <div className={`${privewStyle.name}`}>
           {/* <div className='closesign'> <i class="bi bi-x-lg"></i></div> */}
+          
           <div className="closesign" onClick={hideProduct}>
             <i class="bi bi-x-square-fill"></i>
           </div>
-          <div className="d-flex parentcontainer ">
-            <div className="imagecontainer">
-              {formvalues.images.length > 1 ? (
-                <Carousel>
-                  <Carousel.Item className="carousel-item" interval={2000}>
-                    <img src={formvalues.thumbnail} alt="" />
-                  </Carousel.Item>
-                  {formvalues.images.map((item, index) => {
-                    return (
-                      <Carousel.Item
-                        className="carousel-item"
-                        key={index}
-                        interval={2000}
-                      >
-                        <img src={item} alt="" />
-                      </Carousel.Item>
-                    );
-                  })}
-                </Carousel>
-              ) : formvalues.thumbnail ? (
-                <img src={formvalues.thumbnail} alt="product image" />
-              ) : (
-                <div className="d-flex w-100 h-100 justify-content-center align-items-center">
-                  <h1>No image yet!!</h1>
-                </div>
-              )}
-            </div>
-            <div className=" infocontainer">
-              <div className="w-100 text-center">
-                <h1>{formvalues.title}</h1>
-              </div>
-              <hr />
-              <div>
-                <h2>
-                  {" "}
-                  USD{" "}
-                  <span>
-                    {(formvalues.price *
-                      (100 - formvalues.discountPercentage)) /
-                      100}
-                  </span>
-                </h2>
-              </div>
-              {formvalues.discountPercentage > 0 ? (
-                <div>
-                  <del>USD{formvalues.price}</del> (
-                  {formvalues.discountPercentage} % Off)
-                </div>
-              ) : null}
-              <div>
-                <strong>Description :</strong> {formvalues.description}
-              </div>
 
-              {/* <div>discount percentage : {formvalues.discountPercentage} %</div> */}
-              <div>
-                <strong> In Stock : </strong>
-                {formvalues.stock}
+          <div>
+            <div className="d-flex parentcontainer ">
+              <div className="imagecontainer">
+                {formvalues.images.length > 1 ? (
+                  <div className="slidercontainer"> 
+                    <Carousel className="h-100 w-100">
+                      <Carousel.Item className="carousel-item" interval={2000}>
+                        <img className="sliderimage" src={formvalues.thumbnail} alt="" />
+                      </Carousel.Item>
+                      {formvalues.images.map((item, index) => {
+                        return (
+                          <Carousel.Item
+                            className="carousel-item"
+                            key={index}
+                            interval={2000}
+                          >
+                            <img className="sliderimage" src={item} alt="product image{index}" />
+                          </Carousel.Item>
+                        );
+                      })}
+                    </Carousel>
+                  </div>
+                  
+                ) : formvalues.thumbnail ? (
+                  <img src={formvalues.thumbnail} alt="product image" />
+                ) : (
+                  <div className="d-flex w-100 h-100 justify-content-center align-items-center">
+                    <h1>No image yet!!</h1>
+                  </div>
+                )}
               </div>
-              <div>
-                <strong>Brand : {formvalues.brand}</strong>{" "}
+              <div className=" infocontainer">
+                <div className="w-100 text-center">
+                  <h1>{formvalues.title}</h1>
+                </div>
+                <hr />
+                <div>
+                  <h2>
+                    {" "}
+                    USD{" "}
+                    <span>
+                      {(formvalues.price *
+                        (100 - formvalues.discountPercentage)) /
+                        100}
+                    </span>
+                  </h2>
+                </div>
+                {formvalues.discountPercentage > 0 ? (
+                  <div>
+                    <del>USD{formvalues.price}</del> (
+                    {formvalues.discountPercentage} % Off)
+                  </div>
+                ) : null}
+                <div>
+                  <strong>Description :</strong> {formvalues.description}
+                </div>
+
+                {/* <div>discount percentage : {formvalues.discountPercentage} %</div> */}
+                <div>
+                  <strong> In Stock : </strong>
+                  {formvalues.stock}
+                </div>
+                <div>
+                  <strong>Brand : {formvalues.brand}</strong>{" "}
+                </div>
               </div>
             </div>
           </div>
+
           <div className="d-flex justify-content-around align-items-center buttonscontianer">
             <Button variant="success" type="" onClick={formOperation}>
               Save Products
@@ -552,6 +560,7 @@ export function Addproduct() {
               Complete Editing
             </Button>
           </div>
+
         </div>
       </div>
       <UserAbout />

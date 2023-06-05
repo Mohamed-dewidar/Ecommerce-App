@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Footer from "../../components/admin/Footer";
 import { Button, Form } from "react-bootstrap";
 import { authApi } from "../../api/authApi";
 import "./register.css";

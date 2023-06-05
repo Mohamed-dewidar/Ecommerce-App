@@ -10,6 +10,8 @@
     padding: 1rem;
     border: 2px solid black;
     transition: all 0.5s ease;
+    overflow-y: scroll;
+    z-index: 1;
 }
 
 .closesign {
@@ -35,6 +37,7 @@
     border: 2px solid black;
     transition: all 0.5s ease;
     overflow: scroll;
+    z-index: 1;
 }
 
 img {
@@ -70,24 +73,34 @@ img {
 
 .imagecontainer, .infocontainer{
     width: 90%;
-    /* height: 100%; */
+    /* height: 300px; */
+    /* object-fit: contain; */
     /* border: 2px solid blue; */
-    margin: 0.5rem;
-    padding: 0.5rem;
+    /* margin: 0.5rem;
+    padding: 0.5rem; */
     overflow: hidden;
     /* display: block; */
     
 }
 
 .imagecontainer {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 200px; */
+    overflow: hidden;
     /* border: 2PX solid black; */
 }
 
-.infocontainer {
-    overflow: scroll;
+.slidercontainer {
+    height: 320px;
+    overflow: hidden;
+}
+
+.sliderimage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 del {
