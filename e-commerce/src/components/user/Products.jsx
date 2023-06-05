@@ -48,7 +48,12 @@ export default function Products() {
           <span className="price">
             <span>USD</span> {product.price}
           </span>
-          <button className="btn btn-outline-dark shopBtn">
+          <button
+            className="btn btn-outline-dark shopBtn"
+            onClick={() => {
+              goTo(product.id);
+            }}
+          >
             Shop This Item
           </button>
         </div>
@@ -64,13 +69,6 @@ export default function Products() {
         <div className="productInfo">
           <div className="title">
             <div>{firstProduct.title}</div>
-            <div>
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar />
-            </div>
           </div>
           <div
             className="descriptionLink"
@@ -83,7 +81,14 @@ export default function Products() {
           <div className="price">
             <span>USD</span> {firstProduct.price}
           </div>
-          <div className="btn btn-outline-dark shopBtn">Shop This Item</div>
+          <div
+            className="btn btn-outline-dark shopBtn"
+            onClick={() => {
+              goTo(firstProduct.id);
+            }}
+          >
+            Shop This Item
+          </div>
         </div>
       </div>
       <div className="productsContainer">{productsCards}</div>

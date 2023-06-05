@@ -1,21 +1,21 @@
-import React, { useContext } from "react";
-import "./singleProduct.css";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { AuthContext, CartContext } from "../../context";
-import { userApi } from "../../api/userApi";
-import { Toast } from "../CustomeComponents/Toast";
+import React, { useContext } from 'react';
+import './singleProduct.css';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { AuthContext, CartContext } from '../../context';
+import { userApi } from '../../api/userApi';
+import { Toast } from '../CustomeComponents/Toast';
 export default function SingleProduct() {
   let [product, setProduct] = useState({});
   let { category, id } = useParams();
   const { authUser, setAuthUser } = useContext(AuthContext);
-  const {userCart, setUserCart} = useContext(CartContext)
+  const { userCart, setUserCart } = useContext(CartContext);
   const navigator = useNavigate();
   const [error, setError] = useState({
-    cart: "",
-    wishlist: "",
-    cartMsg: "",
+    cart: '',
+    wishlist: '',
+    cartMsg: '',
   });
   useEffect(
     function () {
@@ -23,18 +23,18 @@ export default function SingleProduct() {
         setProduct(response.data);
       });
     },
-    [category, id],
+    [category, id]
   );
 
   const addItemHandler = async (e) => {
     if (!authUser.id) {
-      navigator("/login");
+      navigator('/login');
       return;
     }
 
     let res = await userApi.addToCart(product, category, authUser.id);
-    if(res.success == 'true'){
-      setUserCart([...res.data.userCart])
+    if (res.success == 'true') {
+      setUserCart([...res.data.userCart]);
     }
     setError({
       ...error,
@@ -45,8 +45,8 @@ export default function SingleProduct() {
     setTimeout(() => {
       setError({
         ...error,
-        cart: "",
-        msg: "",
+        cart: '',
+        msg: '',
       });
     }, 1000);
   };
@@ -86,7 +86,7 @@ export default function SingleProduct() {
                 src={
                   product.images
                     ? product.images[0]
-                    : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
                 }
                 className="d-block w-100"
                 alt="..."
@@ -97,7 +97,7 @@ export default function SingleProduct() {
                 src={
                   product.images
                     ? product.images[1]
-                    : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
                 }
                 className="d-block w-100"
                 alt="..."
@@ -108,7 +108,7 @@ export default function SingleProduct() {
                 src={
                   product.images
                     ? product.images[2]
-                    : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    : 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
                 }
                 className="d-block w-100"
                 alt="..."
@@ -152,20 +152,19 @@ export default function SingleProduct() {
           className="btn btn-dark custom-btn position-relative"
           onClick={addItemHandler}
         >
-          {" "}
+          {' '}
           Add to Cart
         </div>
-        {error.cart == "false" && (
+        {error.cart === 'false' && (
           <p className="text-center lead text-danger align-self-center">
             {error.msg}
           </p>
         )}
-        {error.cart == "true" && (
+        {error.cart === 'true' && (
           <p className="text-center lead text-success align-self-center">
             {error.msg}
           </p>
         )}
-        <div className="btn btn-danger custom-btn">Add to Whishlist</div>
       </div>
     </div>
   );
