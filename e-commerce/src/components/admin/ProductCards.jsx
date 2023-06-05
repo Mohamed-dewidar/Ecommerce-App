@@ -9,7 +9,8 @@ import { GetProducts, GetCategories } from "../../pages/admin/Admin";
 
 export function ProductCards() {
 
-    const user = useContext(UserContext)
+    const value = useContext(UserContext)
+    let user = value
     const products = GetProducts(user)
     const catrgories = GetCategories(user)
 

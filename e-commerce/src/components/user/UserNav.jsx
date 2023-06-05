@@ -17,7 +17,7 @@ export default function UserNav() {
 
   const cartHandler = () => {
     if (!authUser.id) {
-      navigator("/login");
+      navigate("/login");
       return;
     }
     setNavItems({

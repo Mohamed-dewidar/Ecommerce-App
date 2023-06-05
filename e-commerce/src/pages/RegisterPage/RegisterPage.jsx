@@ -61,6 +61,7 @@ export function RegisterPage() {
 
     try {
       let checkEmailExists = await authApi.getUser(user.email, user.type);
+      
       if (checkEmailExists) {
         setError({
           ...error,

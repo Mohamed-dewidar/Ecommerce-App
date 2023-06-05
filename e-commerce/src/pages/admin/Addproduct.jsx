@@ -14,9 +14,9 @@ import { Mynav } from "../../components/admin/Mynav";
 
 export function Addproduct() {
   //  get the id of the product you want to edit
- 
   let { id } = useParams();
   let { category_id } = useParams();
+  let [allcategories, setCategories] = useState([]);
   let AllCategories = [
     "Electronics",
     "Clothing",
@@ -27,11 +27,11 @@ export function Addproduct() {
   let category_name = AllCategories[category_id - 1];
 
   // get the logged in user
-  const {user} = useContext(UserContext);
+  const value = useContext(UserContext);
+  let user = value
   let navigate = useNavigate();
 
   // get all the categories to list them later in the category selection
-  let [allcategories, setCategories] = useState([]);
   let getAllcategories = async () => {
     try {
       let response = await axios.get("http://localhost:3005/categories");
@@ -43,7 +43,8 @@ export function Addproduct() {
   useEffect(() => {
     getAllcategories();
   }, []);
-
+  
+  console.log(user)
   // let [product,setProduct] = useState({})
   let [formvalues, setFormvalues] = useState({
     title: "",
@@ -58,33 +59,34 @@ export function Addproduct() {
     thumbnail: "",
     images: [],
   });
-
+  
   let getProduct = async () => {
     let response = await axios.get(
       `http://localhost:3005/${category_name}/${id}`,
-    );
-    // setProduct(response.data);
-    setFormvalues(response.data);
-  };
-  useEffect(() => {
-    if (id != 0) {
-      getProduct();
-    }
-  }, []);
+      );
+      // setProduct(response.data);
+      setFormvalues(response.data);
+    };
+    useEffect(() => {
+      if (id != 0) {
+        getProduct();
+      }
+    }, []);
+    
 
-  // function on submit
-  let formOperation = (e) => {
-    e.preventDefault();
-    if (id == 0) {
-      category_name = AllCategories[formvalues.category_id - 1];
-      axios
+    // function on submit
+    let formOperation = (e) => {
+      e.preventDefault();
+      if (id == 0) {
+        category_name = AllCategories[formvalues.category_id - 1];
+        axios
         .post(`http://localhost:3005/${category_name}`, formvalues)
         .then((response) => {
           console.log("done!");
           navigate(`/admin/${user}/products`);
         });
-    } else {
-      axios
+      } else {
+        axios
         .put(`http://localhost:3005/${category_name}/${id}`, formvalues)
         .then(() => {
           navigate(`/admin/${user}/products`);
@@ -265,6 +267,11 @@ export function Addproduct() {
   //       <i class="text-danger fs-2 bi bi-x-square-fill" onClick={removeimage}></i>
   //     </div>)
   // })
+
+  if(!user){
+    navigate('/login')
+    return
+  }
 
   return (
     <>
