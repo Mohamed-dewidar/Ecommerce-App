@@ -24,7 +24,6 @@ import { Addproduct } from "./pages/admin/Addproduct";
 function App() {
   const [userCart, setUserCart] = useState([]);
   const [authUser, setAuthUser] = useState({
-    loged: true,
     type: "admin",
     userName: "amrabrazek",
   });
@@ -66,6 +65,8 @@ function App() {
                 path="admin/:user/:category_id/:id/edit"
                 element={<Addproduct />}
               />
+
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </UserContext.Provider>

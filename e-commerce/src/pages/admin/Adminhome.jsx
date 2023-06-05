@@ -3,8 +3,8 @@ import Slider from '../../components/admin/Slider'
 import { ProductCards } from '../../components/admin/ProductCards';
 import { GetProducts, GetCategories } from "../../pages/admin/Admin";
 import { UserContext,  } from '../../context'
-import { useNavigate } from 'react-router-dom';
-import { Button, NavLink } from "react-bootstrap";
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Button } from "react-bootstrap";
 import { Mynav } from "../../components/admin/Mynav";
 import UserAbout from "../../components/user/UserAbout";
 import RenewableEnergy from "../../components/user/RenewableEnergy";
@@ -15,19 +15,22 @@ import Footer from "../../components/user/Footer";
 
 export function Adminhome() {
 
-  const {user} = useContext(UserContext)
-  console.log(user)
+  const value = useContext(UserContext)
+  let user = value
   const products = GetProducts(user)
-  console.log(products)
+ 
   let navigate = useNavigate();
-
+  if(!user){
+    navigate('/login')
+    return
+  }
   return (
     <>
     <Mynav />
     <div className='d-flex flex-column '> 
     {products.length === 0 ? 
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <div><h1>Welcome to ECHO</h1></div>
+      <div><h1>Welcome to ECHO {user}</h1></div>
       <br />
 
       <Button 
@@ -49,7 +52,6 @@ export function Adminhome() {
       <RenewableEnergy />
       <ContactUs />
       <Footer />
-
       <NavLink to={`/admin/${user}/product/0/edit`}>
         <div className="addbutton"><i className=" text-dark fs-1 bi bi-plus-circle-fill"></i></div>
         </NavLink> 

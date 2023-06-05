@@ -6,8 +6,8 @@ import { Accordion } from "react-bootstrap";
 import { GetCategories } from "../../pages/admin/Admin";
 
 export  function Myaccordion() {
-
-  const user = useContext(UserContext)
+const value = useContext(UserContext)
+  let user = value
   const categories = GetCategories(user)
 
   return (

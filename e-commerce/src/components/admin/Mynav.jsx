@@ -7,7 +7,8 @@ import '../user/userNav.css';
 
 export  function Mynav() {
 
-  const user = useContext(UserContext)
+  const value = useContext(UserContext)
+  let user = value
 
 
   let navigate = useNavigate();

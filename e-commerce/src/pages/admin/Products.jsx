@@ -12,12 +12,19 @@ import UserAbout from "../../components/user/UserAbout";
 import RenewableEnergy from "../../components/user/RenewableEnergy";
 import ContactUs from "../../components/user/ContactUs";
 import Footer from "../../components/user/Footer";
+
 // import { useNavigate } from 'react-router-dom';
 
 export function Products() {
-  const {user} = useContext(UserContext);
+  const value = useContext(UserContext);
+  let user = value
   const products = GetProducts(user);
   let navigate = useNavigate();
+  console.log(user)
+  if(!user){
+    navigate('/login')
+    return
+  }
 
   return (
     <>

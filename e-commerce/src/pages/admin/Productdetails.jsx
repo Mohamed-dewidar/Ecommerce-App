@@ -13,8 +13,11 @@ import Footer from "../../components/user/Footer";
 import { UserContext } from "../../context";
 
 export function Productdetails() {
-  let {user} = useContext(UserContext)
+  let value = useContext(UserContext)
+  let user = value;
+  console.log(user)
   let { id } = useParams();
+
   let { category_id } = useParams();
   let AllCategories = [
     "Electronics",
@@ -48,18 +51,19 @@ export function Productdetails() {
   }, [product]);
 
   let changepic = (imageurl) => {
-    console.log(imageurl);
-    console.log(selectedpic);
+    // console.log(imageurl);
+    // console.log(selectedpic);
     setSelectedpic(imageurl);
-    console.log(selectedpic);
+    // console.log(selectedpic);
   };
 
   let deleteelement = (id) => {
     axios
-      .delete(`http://localhost:3005/${product.category_id}/${id}`)
+      .delete(`http://localhost:3005/${category_name}/${id}`)
       .then((response) => {
-        // console.log("deleted successfully")
+        console.log("deleted successfully")
         navigate(`/admin/${product.seller}/products`);
+        console.log(product)
         GetProducts(product.seller);
       })
       .catch((error) => {
@@ -145,11 +149,11 @@ export function Productdetails() {
             <Button variant="primary">Edit Product</Button>
           </NavLink>
 
-          <a href="">
+         
             <div onClick={() => deleteelement(product.id)}>
               <Button variant="danger">Delete product</Button>{" "}
             </div>
-          </a>
+        
         </div>
       </div>
       <UserAbout />

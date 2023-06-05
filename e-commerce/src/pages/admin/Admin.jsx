@@ -74,7 +74,7 @@ export function GetProducts (username){
     
         const products = responses.flatMap((response) => response.data);
         
-        setProducts(products);
+        setProducts([...products]);
         console.log(products)
       } catch (error) {
         console.log(error);
@@ -83,7 +83,6 @@ export function GetProducts (username){
   
     useEffect(() => {
       getAllproducts();
-        console.log(products)
       }, []);
   
     let userProductArr = products.filter(product => { return product.seller === username})
