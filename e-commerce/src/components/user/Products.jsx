@@ -5,10 +5,12 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { ProductsContext } from '../../context';
 export default function Products() {
   let { category } = useParams();
   let [firstProduct, setFirstProduct] = useState({});
-  let [products, setProducts] = useState([]);
+  let { products, setProducts } = useContext(ProductsContext);
   useEffect(
     function () {
       axios.get(`http://localhost:3005/${category}/`).then((response) => {
