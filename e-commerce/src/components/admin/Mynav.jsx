@@ -7,9 +7,10 @@ import '../user/userNav.css';
 
 export  function Mynav() {
 
-  let [logouicon, SetLogouticon] = useState ({
-    show:false,
-  })
+  // let [logouicon, SetLogouticon] = useState ({
+  //   show:false,
+  // })
+  const {authUser,setAuthUser} = useContext(AuthContext);
   const value = useContext(UserContext)
   let user = value
 
@@ -27,6 +28,7 @@ export  function Mynav() {
   // }
 
   let logout = () => {
+    setAuthUser({})
     navigate(`/login`)
   }
 
