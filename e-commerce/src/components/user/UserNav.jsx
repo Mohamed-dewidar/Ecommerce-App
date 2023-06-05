@@ -43,11 +43,14 @@ export default function UserNav() {
   function searchProducts(e) {
     let filteredProducts = allProducts.filter((product) => {
       return (
-        product.title.includes(e.target.value) ||
-        product.description.includes(e.target.value)
+        product.title
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase().trim()) ||
+        product.description
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase().trim())
       );
     });
-    console.log(filteredProducts);
     setProducts(filteredProducts);
   }
 
