@@ -72,6 +72,16 @@
       "wishList": [],
       "cart": [],
       "type": "customer"
+    },
+    {
+      "id": "a92e7c3e-2d92-42ad-bb6a-fc467f08c987",
+      "userName": "searching_for_success",
+      "email": "searching_for_success@yahoo.com",
+      "password": "Kk@123456",
+      "active": true,
+      "wishList": [],
+      "cart": [],
+      "type": "customer"
     }
   ],
   "categories": [
