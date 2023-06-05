@@ -51,7 +51,7 @@ export default function UserNav() {
         <div className="navLogo" onClick={goHome}>
           ECHO
         </div>
-        {'category' in params ? navSearch : slogan}
+        {'category' in params ? ('id' in params ? slogan : navSearch) : slogan}
         <div className="cart">
           <div>Sign in</div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
