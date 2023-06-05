@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import './userNav.css';
 import { useNavigate } from 'react-router-dom';
 import { Cart } from './Cart';
+import { AuthContext } from '../../context';
+import { useContext } from 'react';
 export default function UserNav() {
+  const { authUser } = useContext(AuthContext);
   let navigate = useNavigate();
   const [navItems, setNavItems] = useState({
     showCart: false,
@@ -13,6 +16,10 @@ export default function UserNav() {
   }
 
   const cartHandler = () => {
+    if (!authUser.id) {
+      navigator("/login");
+      return;
+    }
     setNavItems({
       showCart: !navItems.showCart,
       showWishlist: false

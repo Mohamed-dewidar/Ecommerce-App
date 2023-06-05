@@ -62,6 +62,16 @@
         }
       ],
       "type": "customer"
+    },
+    {
+      "id": "eec7dd1d-f77a-4789-90c7-82a9d3aa7407",
+      "userName": "amr.3brazek",
+      "email": "amr.3brazek@gmail.com",
+      "password": "123456@aA",
+      "active": false,
+      "wishList": [],
+      "cart": [],
+      "type": "customer"
     }
   ],
   "categories": [

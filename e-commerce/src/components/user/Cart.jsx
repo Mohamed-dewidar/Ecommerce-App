@@ -12,10 +12,7 @@ export function Cart({ props }) {
   const { userCart, setUserCart } = useContext(CartContext);
 
   const getCart = async () => {
-    if (!authUser.id) {
-      navigator("/login");
-      return;
-    }
+    
 
     let res = await userApi.getUserCart(authUser.id);
     setUserCart([...res.data.cart]);
