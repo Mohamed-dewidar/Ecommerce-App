@@ -25,7 +25,7 @@ function App() {
   const [userCart, setUserCart] = useState([]);
   const [authUser, setAuthUser] = useState({
     loged: false,
-    type: "admin",
+    type: "user",
     userName: "amrabrazek",
   });
 
