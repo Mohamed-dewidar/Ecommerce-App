@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./userNav.css";
 import { useNavigate } from "react-router-dom";
 import { Cart } from "./Cart";
-import { AuthContext, ProductsContext } from "../../context";
+import { AuthContext, CartContext, ProductsContext } from "../../context";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
 export default function UserNav() {
   let params = useParams();
   let allProducts = [];
@@ -20,6 +21,7 @@ export default function UserNav() {
 
   const { authUser , setAuthUser} = useContext(AuthContext);
   const { products, setProducts } = useContext(ProductsContext);
+  const {userCart, setUserCart} = useContext(CartContext)
   let navigate = useNavigate();
   const [navItems, setNavItems] = useState({
     showCart: false,
@@ -77,6 +79,7 @@ export default function UserNav() {
 
   const logoutHandler = () => {
     setAuthUser({})
+    setUserCart([])
    
   }
 
