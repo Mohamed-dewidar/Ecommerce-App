@@ -2,6 +2,7 @@
 <style>
     circle{
        
+    transform-origin: center center;
         animation: animateRegisterBG alternate infinite 5s;
     }
   
@@ -9,12 +10,15 @@
     @keyframes animateRegisterBG {
   from {
     fill: rgb(255 255 255/ 0.5);
+    transform: scale(0.8);
     
   }
   to {
     
     fill: rgb(241 100 30/ 0.8);
-    background-position: 100% ;
+    transform: scale(1.2);
+    
+   
   }
 
 
