@@ -80,6 +80,9 @@ export default function UserNav() {
   const logoutHandler = () => {
     setAuthUser({})
     setUserCart([])
+    setNavItems({
+      showCart: false
+    })
    
   }
 

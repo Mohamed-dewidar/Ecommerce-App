@@ -41,17 +41,8 @@
       "wishList": [],
       "cart": [],
       "type": "customer"
-    },
-    {
-      "id": "57357cab-258c-4212-8d62-50f3cb1022be",
-      "userName": "khaledmo747",
-      "email": "khaledmo747@gmail.com",
-      "password": "123456@aA",
-      "active": true,
-      "wishList": [],
-      "cart": [],
-      "type": "customer"
     }
+    
   ],
   "categories": [
     {
@@ -339,7 +330,7 @@
   "Leather": [
     {
       "id": 1,
-      "title": "Buffalo Jackson",
+      "title": "Buffalo Jackson Roosevelt Buffalo Leather Satchel Messenger Bag",
       "description": "A rugged and stylish bag made of genuine buffalo leather that can fit a 15-inch laptop and other essentials. It has a flap closure with buckles, an adjustable shoulder strap, and several pockets for organization.",
       "price": 299,
       "discountPercentage": 12,
@@ -357,7 +348,7 @@
     },
     {
       "id": 2,
-      "title": "Realeather Leather Lace",
+      "title": "Realeather Leather Craft Lace",
       "description": "A spool of real leather lace that can be used for various leathercraft projects, such as braiding, beading, lacing, and stitching. It is 5/32 inch wide and 25 yards long, and comes in different colors, such as black, brown, tan, and white.",
       "price": 29.9,
       "discountPercentage": 12,
@@ -410,23 +401,6 @@
         "https://d23x6d9cx8qezf.cloudfront.net/wp-content/uploads/2017/11/Seiko-Presage-Cocktail-Starlight-Sakura-Hubuki-SSA361-363-SRPC01-03-1.jpg",
         "https://th.bing.com/th/id/R.495e10591e834d2135c6be1f204d4d3b?rik=chr7ASLp9ciFkQ&riu=http%3a%2f%2fwww.ablogtowatch.com%2fwp-content%2fuploads%2f2017%2f02%2fSeiko-Presage-Automatic-Enamel-SPB045-01.jpg&ehk=M2F4ZjUtMPuVRjGqX8z67vokjFpVEWM3TRqOIKEY4oQ%3d&risl=&pid=ImgRaw&r=0"
       ]
-    },
-    {
-      "title": "Air-King",
-      "description": "A tribute to aviation and the pioneers of flight",
-      "price": "1240",
-      "discountPercentage": "10",
-      "rating": "",
-      "stock": "6",
-      "brand": "Rolex",
-      "category_id": "5",
-      "seller": "amrabrazek",
-      "thumbnail": "https://th.bing.com/th/id/OIP.DCfpezdyfKG0loarsJDsNwHaHr?pid=ImgDet&rs=1",
-      "images": [
-        "https://amsterdamvintagewatches.com/wp-content/uploads/2018/12/AVW-Rolex-Air-King-Blue-Dial-4-Close.jpg",
-        "https://thewatchlounge.com/wp-content/uploads/2019/08/Rolex-Air-King-116900-The-Watch-Lounge-2-scaled.jpg"
-      ],
-      "id": 3
     }
   ]
 }

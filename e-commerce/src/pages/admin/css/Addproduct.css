@@ -1,168 +1,157 @@
 .previewContainer {
-    width: 80%;
-    height:60%;
-    left: 10%;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 200vh;
-    background-color: white;
-    padding: 1rem;
-    border: 2px solid black;
-    transition: all 0.5s ease;
-    overflow-y: scroll;
-    z-index: 1;
+  width: 80%;
+  height: 60%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 200vh;
+  background-color: white;
+  padding: 1rem;
+  border: 2px solid black;
+  transition: all 0.5s ease;
+  overflow-y: scroll;
+  z-index: 1;
 }
 
 .closesign {
-    /* position: absolute; */
-    margin-left: auto;
-    padding-right: 2rem;
-    font-size: x-large;
-    font-weight: bolder;
-    cursor: pointer;
-    
+  /* position: absolute; */
+  margin-left: auto;
+  padding-right: 2rem;
+  font-size: x-large;
+  font-weight: bolder;
+  cursor: pointer;
 }
 
-.previewContainer2{
-    width: 80%;
-    height:60%;
-    left: 10%;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 15vh;
-    background-color: white;
-    padding: 1rem;
-    border: 2px solid black;
-    transition: all 0.5s ease;
-    overflow: scroll;
-    z-index: 1;
+.previewContainer2 {
+  width: 80%;
+  height: 60%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 15vh;
+  background-color: white;
+  padding: 1rem;
+  border: 2px solid black;
+  transition: all 0.5s ease;
+  overflow: scroll;
+  z-index: 1;
 }
 
 img {
-    height: 100%;
-    object-fit: cover;
-    display: block;
-
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .optionspage {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    background-color: white;
-    /* width: 450px; */
-    height: 500px;
-    z-index: 1;
-    padding: 1rem ;
-    border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  background-color: white;
+  /* width: 450px; */
+  height: 500px;
+  z-index: 1;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
-.parentcontainer{
-    height: calc( 100% - 4rem  );
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    /* overflow: scroll; */
-    justify-content: center;
-    align-items: center;
-    /* overflow-y: scroll; */
+.parentcontainer {
+  height: calc(100% - 4rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* overflow: scroll; */
+  justify-content: center;
+  align-items: center;
+  /* overflow-y: scroll; */
 }
 
-.imagecontainer, .infocontainer{
-    width: 90%;
-    /* height: 300px; */
-    /* object-fit: contain; */
-    /* border: 2px solid blue; */
-    /* margin: 0.5rem;
+.imagecontainer,
+.infocontainer {
+  width: 90%;
+  /* height: 300px; */
+  /* object-fit: contain; */
+  /* border: 2px solid blue; */
+  /* margin: 0.5rem;
     padding: 0.5rem; */
-    overflow: hidden;
-    /* display: block; */
-    
+  overflow: hidden;
+  /* display: block; */
 }
 
 .imagecontainer {
-    /* display: flex;
+  /* display: flex;
     justify-content: center;
     align-items: center; */
-    /* height: 200px; */
-    overflow: hidden;
-    /* border: 2PX solid black; */
+  /* height: 200px; */
+  overflow: hidden;
+  /* border: 2PX solid black; */
 }
 
 .slidercontainer {
-    height: 320px;
-    overflow: hidden;
+  height: 320px;
+  overflow: hidden;
 }
 
-.sliderimage{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.sliderimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 del {
-    text-decoration: line-through;
-    color: gray;
-  }
-
-.buttonscontianer{
-    height: 6rem;
+  text-decoration: line-through;
+  color: gray;
 }
 
-@media screen and (min-width:1200px)
-{
-    .previewContainer
-    {
+.buttonscontianer {
+  height: 6rem;
+}
+
+@media screen and (min-width: 900px) {
+  .previewContainer {
     width: 70%;
-    height:60%;
+    height: 60%;
     left: 15%;
-    }
-    .parentcontainer
-    {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow: hidden;
-    }
-    .previewContainer2 {
-        overflow: hidden;
-    }
+  }
+  .parentcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  .previewContainer2 {
+    overflow: hidden;
+  }
 
-    .carousel-item{
-        height: 400px ;
-    }
-} 
-
-
-
-@media screen and (min-width:2000px)
-{
-    .previewContainer
-    {
-    width: 60%;
-    height:60%;
-    left: 20%;
-    }
-} 
-
-
-
-.carousel-item{
-    position: relative;
-    width: 100%;
-    height: 300px;
+  .carousel-item {
+    height: 400px;
+  }
 }
 
-  
-  .carousel-item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
+@media screen and (min-width: 1200px) {
+  .previewContainer {
+    width: 60%;
+    height: 60%;
+    left: 20%;
+    
   }
+}
+
+.carousel-item {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
